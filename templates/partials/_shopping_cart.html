@@ -1,0 +1,131 @@
+<!-- shoppingCart -->
+{% load static i18n %}
+
+<div class="modal fullRight fade modal-shopping-cart trophy_background" id="shoppingCart" style="direction: {% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %};">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="header">
+                <div class="title fw-5">{% trans "Shopping cart" %}</div>
+                <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+            </div>
+            <div class="wrap">
+                <div class="tf-mini-cart-threshold">
+                    <div class="tf-progress-bar">
+                        <span style="width: 50%;"></span>
+                    </div>
+                    <div class="tf-progress-msg">
+                        {% trans "Buy" %} <span class="price fw-6">$75.00</span> {% trans "more to enjoy" %} <span class="fw-6">{% trans "Free Shipping" %}</span>
+                    </div>
+                </div>
+
+                <div class="tf-mini-cart-wrap">
+                    <div class="tf-mini-cart-main">
+                        <div class="tf-mini-cart-sroll">
+                            <div class="tf-mini-cart-items">
+
+                                <div class="tf-mini-cart-item">
+                                    <div class="tf-mini-cart-image">
+                                        <a href="">
+                                            <img src="{% static 'images/products/white-2.jpg' %}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="tf-mini-cart-info">
+                                        <a class="title link" href="">{% trans "T-shirt" %}</a>
+                                        <div class="meta-variant">{% trans "Light gray" %}</div>
+                                        <div class="price fw-6">$25.00</div>
+                                        <div class="tf-mini-cart-btns">
+                                            <div class="wg-quantity small">
+                                                <span class="btn-quantity minus-btn">-</span>
+                                                <input type="text" name="number" value="1">
+                                                <span class="btn-quantity plus-btn">+</span>
+                                            </div>
+                                            <div class="tf-mini-cart-remove">{% trans "Remove" %}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tf-mini-cart-item">
+                                    <div class="tf-mini-cart-image">
+                                        <a href="">
+                                            <img src="{% static 'images/products/white-3.jpg' %}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="tf-mini-cart-info">
+                                        <a class="title link" href="">{% trans "Oversized Motif T-shirt" %}</a>
+                                        <div class="price fw-6">$25.00</div>
+                                        <div class="tf-mini-cart-btns">
+                                            <div class="wg-quantity small">
+                                                <span class="btn-quantity minus-btn">-</span>
+                                                <input type="text" name="number" value="1">
+                                                <span class="btn-quantity plus-btn">+</span>
+                                            </div>
+                                            <div class="tf-mini-cart-remove">{% trans "Remove" %}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tf-minicart-recommendations">
+                                <div class="tf-minicart-recommendations-heading">
+                                    <div class="tf-minicart-recommendations-title">{% trans "You may also like" %}</div>
+                                    <div class="sw-dots small style-2 cart-slide-pagination"></div>
+                                </div>
+
+                                <div class="swiper tf-cart-slide">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="tf-minicart-recommendations-item">
+                                                <div class="tf-minicart-recommendations-item-image">
+                                                    <a href="">
+                                                        <img src="{% static 'images/products/white-2.jpg' %}" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="tf-minicart-recommendations-item-infos flex-grow-1">
+                                                    <a class="title" href="">{% trans "Loose Fit Hoodie" %}</a>
+                                                    <div class="price">$25.00</div>
+                                                </div>
+                                                <div class="tf-minicart-recommendations-item-quickview">
+                                                    <div class="btn-show-quickview quickview hover-tooltip">
+                                                        <span class="icon icon-view"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- swiper-wrapper -->
+                                </div> <!-- swiper -->
+                            </div> <!-- recommendations -->
+
+                        </div> <!-- tf-mini-cart-sroll -->
+                    </div> <!-- tf-mini-cart-main -->
+
+                    <div class="tf-mini-cart-bottom">
+                        <div class="tf-mini-cart-tool">
+                            <div class="tf-mini-cart-tool-btn btn-add-note">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="currentColor">
+                                    <path d="M5.12 16.46H2.79C2.02 16.46 1.39 15.83 1.39 15.06V2.79C1.39 2.02 2.02 1.39 2.79 1.39H11.36C12.13 1.39 12.76 2.02 12.76 2.79V7.08C12.76 7.46 13.07 7.78 13.46 7.78C13.84 7.78 14.15 7.46 14.15 7.08V2.79C14.15 1.25 12.90 0 11.36 0H2.79C1.25 0 0 1.25 0 2.79V15.06C0 16.60 1.25 17.85 2.79 17.85H5.12C5.51 17.85 5.82 17.54 5.82 17.16C5.82 16.77 5.51 16.46 5.12 16.46Z"></path>
+                                </svg>
+                                {% trans "Add note" %}
+                            </div>
+                        </div>
+                        <div class="tf-mini-cart-total">
+                            <div class="flex-between">
+                                <div class="title">{% trans "Subtotal" %}</div>
+                                <div class="price">$50.00</div>
+                            </div>
+                        </div>
+                        <div class="tf-mini-cart-buttons">
+                            <a href="#" class="tf-btn btn-border animate-hover-btn radius-2 w-100 justify-content-center">
+                                <span>{% trans "View Cart" %}</span>
+                            </a>
+                            <a href="#" class="tf-btn btn-fill animate-hover-btn radius-2 w-100 justify-content-center">
+                                <span>{% trans "Check out" %}</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div> <!-- tf-mini-cart-wrap -->
+            </div> <!-- wrap -->
+        </div> <!-- modal-content -->
+    </div> <!-- modal-dialog -->
+</div> <!-- shoppingCart -->

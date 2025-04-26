@@ -1,0 +1,51 @@
+<!-- toolbar-bottom -->
+{% load i18n %}
+<div class="tf-toolbar-bottom type-1150 trophy_background" style="direction: {% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %};">
+    <div class="toolbar-item active">
+        <a href="#toolbarShopmb" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+            <div class="toolbar-icon trophy_background">
+                <i class="icon-shop menu-btn-color"></i>
+            </div>
+            <div class="toolbar-label trophy_background">{% trans "Shop" %}</div>
+        </a>
+    </div>
+
+    <div class="toolbar-item">
+        <a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+            <div class="toolbar-icon trophy_background">
+                <i class="icon-search  menu-btn-color"></i>
+            </div>
+            <div class="toolbar-label trophy_background">{% trans "Search" %}</div>
+        </a>
+    </div>
+
+    <div class="toolbar-item">
+        <a href="#login" data-bs-toggle="modal">
+            <div class="toolbar-icon">
+                <i class="icon-account  menu-btn-color"></i>
+            </div>
+            <div class="toolbar-label trophy_background ">{% trans "Account" %}</div>
+        </a>
+    </div>
+
+    <div class="toolbar-item">
+        <a href="wishlist.html">
+            <div class="toolbar-icon">
+                <i class="icon-heart menu-btn-color"></i>
+                <div class="toolbar-count">0</div>
+            </div>
+            <div class="toolbar-label trophy_background">{% trans "Wishlist" %}</div>
+        </a>
+    </div>
+
+    <div class="toolbar-item">
+        <a href="#shoppingCart" data-bs-toggle="modal">
+            <div class="toolbar-icon">
+                <i class="icon-bag menu-btn-color"></i>
+                <div class="toolbar-count trophy_background">1</div>
+            </div>
+            <div class="toolbar-label trophy_background">{% trans "Cart" %}</div>
+        </a>
+    </div>
+</div>
+<!-- /toolbar-bottom -->

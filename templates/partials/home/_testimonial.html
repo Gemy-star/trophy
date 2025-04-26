@@ -1,0 +1,113 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Testimonial -->
+<section class="flat-testimonial-v2 trophy_background">
+    <div class="container">
+        <div class="wrapper-thumbs-testimonial-v2 flat-thumbs-testimonial">
+            <div class="box-left wow fadeInUp" data-wow-delay="0s">
+                <div class="swiper tf-sw-tes-2" data-preview="1" data-space-lg="40" data-space-md="30">
+                    <div class="swiper-wrapper">
+
+                        <!-- Testimonial 1 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-item lg lg-2">
+                                <div class="icon">
+                                    <img class="lazyloaded" data-src="{% static 'images/item/quote.svg' %}" src="{% static 'images/item/quote.svg' %}" alt="">
+                                </div>
+                                <div class="rating">
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                </div>
+                                <p class="text text-white">
+                                    {% trans "طلبت درع تكريمي لمناسبة خاصة، وكانت النتيجة أكثر من رائعة! جودة ممتازة وتصميم أنيق وتسليم سريع. أوصي بالتعامل مع هذا الموقع بشدة." %}
+                                </p>
+                                <div class="author box-author">
+                                    <div class="box-img d-md-none rounded-0">
+                                        <img class="lazyload img-product" data-src="{% static 'images/blog/blog-1.jpg' %}" src="{% static 'images/blog/blog-1.jpg' %}" alt="{% trans 'testimonial image' %}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="name">{% trans "روبرت سميث" %}</div>
+                                        <a href="product-detail.html" class="metas link menu-btn-color">
+                                            {% trans "منتج مشتراه" %} : <span>{% trans "درع تذكاري فاخر" %}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-item lg lg-2">
+                                <div class="icon">
+                                    <img class="lazyloaded" data-src="{% static 'images/item/quote.svg' %}" src="{% static 'images/item/quote.svg' %}" alt="">
+                                </div>
+                                <div class="rating">
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                </div>
+                                <p class="text">
+                                    {% trans "خدمة مميزة وتصاميم احترافية. طلبت كؤوس جوائز لحفل شركتي وكانت بأعلى جودة ممكنة. شكراً لكم على الإبداع والدقة." %}
+                                </p>
+                                <div class="author box-author">
+                                    <div class="box-img d-md-none rounded-0">
+                                        <img class="lazyload img-product" data-src="{% static 'images/item/tets4.jpg' %}" src="{% static 'images/item/tets4.jpg' %}" alt="{% trans 'testimonial image' %}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="name">{% trans "جنيفر يونيكس" %}</div>
+                                        <a href="product-detail.html" class="metas link">
+                                            {% trans "منتج مشتراه" %} : <span>{% trans "كأس تذكاري ذهبي" %}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="d-md-flex d-none box-sw-navigation">
+                    <div class="nav-sw nav-next-slider nav-next-tes-2">
+                        <span class="icon icon-arrow-left"></span>
+                    </div>
+                    <div class="nav-sw nav-prev-slider nav-prev-tes-2">
+                        <span class="icon icon-arrow-right"></span>
+                    </div>
+                </div>
+
+                <!-- Mobile Dots -->
+                <div class="d-md-none sw-dots style-2 sw-pagination-tes-2"></div>
+            </div>
+
+            <!-- Thumbnails -->
+            <div class="box-right wow fadeInUp" data-wow-delay="0s">
+                <div class="swiper tf-thumb-tes" data-preview="1" data-space="30">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="img-sw-thumb">
+                                <img class="lazyload img-product" data-src="{% static 'images/item/tets3.jpg' %}" src="{% static 'images/item/tets3.jpg' %}" alt="{% trans 'testimonial image' %}">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="img-sw-thumb">
+                                <img class="lazyload img-product" data-src="{% static 'images/item/tets4.jpg' %}" src="{% static 'images/item/tets4.jpg' %}" alt="{% trans 'testimonial image' %}">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- /Testimonial -->

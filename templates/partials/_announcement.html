@@ -1,0 +1,42 @@
+{% load static %}
+<!-- Top bar -->
+<div class="tf-top-bar trophy_background line" style="direction: {% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %};">
+    <div class="px_15 lg-px_40">
+        <div class="tf-top-bar_wrap grid-3 gap-30 align-items-center">
+            <div class="tf-top-bar_left">
+                <div class="d-flex gap-30 text_white fw-5">
+                    <span class="menu-btn-color">(+333) 123-1688</span>
+                    <span class="menu-btn-color">sayhello@ecomus.com</span>
+                </div>
+            </div>
+            <div class="text-center overflow-hidden">
+                <div class="swiper tf-sw-top_bar" data-preview="1" data-space="0" data-loop="true" data-speed="1000" data-delay="2000">
+                    <div class="swiper-wrapper">
+                        {% for announcement in announcements %}
+                            <div class="swiper-slide">
+                                <p class="top-bar-text fw-5 text_white">
+                                    {{ announcement.title }}
+                                </p>
+                            </div>
+                        {% empty %}
+                            <div class="swiper-slide">
+                                <p class="top-bar-text fw-5 text_white">No announcements at the moment.</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="top-bar-language tf-cur justify-content-end">
+                <div class="tf-languages">
+                    <select class="image-select center style-default type-languages color-white trophy_background">
+                        <option>English</option>
+                        <option>العربية</option>
+                        <option>简体中文</option>
+                        <option>اردو</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Top bar -->

@@ -1,0 +1,366 @@
+# عنوان وصفي
+# Copyright (C) السنة مالك حقوق النشر للحزمة
+# هذا الملف موزع تحت نفس ترخيص الحزمة
+# المؤلف الأول <البريد الإلكتروني@العنوان>، السنة.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-26 19:33+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Arabic <LL@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\main\models.py:7
+msgid "Title"
+msgstr "العنوان"
+
+#: .\main\models.py:8
+msgid "Date"
+msgstr "التاريخ"
+
+#: .\main\models.py:11
+msgid "Announcement"
+msgstr "إعلان"
+
+#: .\main\models.py:12
+msgid "Announcements"
+msgstr "الإعلانات"
+
+#: .\main\models.py:20
+msgid "Slider Image"
+msgstr "صورة السلايدر"
+
+#: .\main\models.py:28
+msgid "Heading"
+msgstr "العنوان الرئيسي"
+
+#: .\main\models.py:29
+msgid "Subheading"
+msgstr "العنوان الفرعي"
+
+#: .\main\models.py:30
+msgid "Button Text"
+msgstr "نص الزر"
+
+#: .\main\models.py:33
+msgid "Django URL Name"
+msgstr "اسم رابط Django"
+
+#: .\main\models.py:34
+msgid "Enter the Django URL name (e.g. 'about_page', 'blogs_page')."
+msgstr "أدخل اسم رابط Django (مثال: 'about_page' أو 'blogs_page')."
+
+#: .\main\models.py:36
+msgid "Display Order"
+msgstr "ترتيب العرض"
+
+#: .\main\models.py:37
+msgid "Active"
+msgstr "نشط"
+
+#: .\main\models.py:41
+msgid "Home Slider"
+msgstr "سلايدر الصفحة الرئيسية"
+
+#: .\main\models.py:42
+msgid "Home Sliders"
+msgstr "سلايدرز الصفحة الرئيسية"
+
+#: .\templates\partials\_footer.html:19
+#: .\templates\partials\_mobile_menu.html:28
+msgid "Address"
+msgstr "العنوان"
+
+#: .\templates\partials\_footer.html:22
+#: .\templates\partials\_mobile_menu.html:29
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\templates\partials\_footer.html:25
+#: .\templates\partials\_mobile_menu.html:30
+msgid "Phone"
+msgstr "رقم الهاتف"
+
+#: .\templates\partials\_footer.html:28
+msgid "Get direction"
+msgstr "احصل على الاتجاهات"
+
+#: .\templates\partials\_footer.html:41 .\templates\partials\_footer.html:44
+msgid "Help"
+msgstr "مساعدة"
+
+#: .\templates\partials\_footer.html:47
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: .\templates\partials\_footer.html:48
+msgid "Returns + Exchanges"
+msgstr "المرتجعات والاستبدالات"
+
+#: .\templates\partials\_footer.html:49
+msgid "Shipping"
+msgstr "الشحن"
+
+#: .\templates\partials\_footer.html:50
+msgid "Terms & Conditions"
+msgstr "الشروط والأحكام"
+
+#: .\templates\partials\_footer.html:51
+msgid "FAQ’s"
+msgstr "الأسئلة الشائعة"
+
+#: .\templates\partials\_footer.html:52
+msgid "Compare"
+msgstr "مقارنة"
+
+#: .\templates\partials\_footer.html:53
+msgid "My Wishlist"
+msgstr "قائمتي المفضلة"
+
+#: .\templates\partials\_footer.html:59 .\templates\partials\_footer.html:62
+msgid "About us"
+msgstr "معلومات عنا"
+
+#: .\templates\partials\_footer.html:65
+msgid "Our Story"
+msgstr "قصتنا"
+
+#: .\templates\partials\_footer.html:66
+msgid "Visit Our Store"
+msgstr "زر متجرنا"
+
+#: .\templates\partials\_footer.html:67 .\templates\partials\_header.html:26
+#: .\templates\partials\_mobile_menu.html:13
+msgid "Contact Us"
+msgstr "تواصل معنا"
+
+#: .\templates\partials\_footer.html:68
+#: .\templates\partials\toolbar_bottom.html:27
+msgid "Account"
+msgstr "الحساب"
+
+#: .\templates\partials\_footer.html:75 .\templates\partials\_footer.html:78
+msgid "Sign Up for Email"
+msgstr "اشترك عبر البريد الإلكتروني"
+
+#: .\templates\partials\_footer.html:81
+msgid ""
+"Sign up to get first dibs on new arrivals, sales, exclusive content, events "
+"and more!"
+msgstr "اشترك للحصول على أول فرصة للمنتجات الجديدة والعروض والمحتوى الحصري والمزيد!"
+
+#: .\templates\partials\_footer.html:85
+msgid "Enter your email...."
+msgstr "أدخل بريدك الإلكتروني..."
+
+#: .\templates\partials\_footer.html:89
+msgid "Subscribe"
+msgstr "اشترك"
+
+#: .\templates\partials\_footer.html:98
+#: .\templates\partials\_mobile_menu.html:41
+msgid "France"
+msgstr "فرنسا"
+
+#: .\templates\partials\_footer.html:99
+#: .\templates\partials\_mobile_menu.html:42
+msgid "Germany"
+msgstr "ألمانيا"
+
+#: .\templates\partials\_footer.html:100
+#: .\templates\partials\_mobile_menu.html:43
+msgid "United States"
+msgstr "الولايات المتحدة"
+
+#: .\templates\partials\_footer.html:101
+#: .\templates\partials\_mobile_menu.html:44
+msgid "Vietnam"
+msgstr "فيتنام"
+
+#: .\templates\partials\_footer.html:106
+#: .\templates\partials\_mobile_menu.html:49 .\trophy\settings.py:124
+msgid "English"
+msgstr "الإنجليزية"
+
+#: .\templates\partials\_footer.html:107
+msgid "العربية"
+msgstr "العربية"
+
+#: .\templates\partials\_footer.html:108
+#: .\templates\partials\_mobile_menu.html:51
+msgid "Simplified Chinese"
+msgstr "الصينية المبسطة"
+
+#: .\templates\partials\_footer.html:109
+#: .\templates\partials\_mobile_menu.html:52
+msgid "Urdu"
+msgstr "الأردية"
+
+#: .\templates\partials\_footer.html:125
+msgid "All Rights Reserved"
+msgstr "جميع الحقوق محفوظة"
+
+#: .\templates\partials\_header.html:21
+#: .\templates\partials\_mobile_menu.html:8
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\templates\partials\_header.html:22
+#: .\templates\partials\_mobile_menu.html:9
+msgid "Categories"
+msgstr "الفئات"
+
+#: .\templates\partials\_header.html:23
+#: .\templates\partials\_mobile_menu.html:10
+msgid "Authorized sellers"
+msgstr "البائعون المعتمدون"
+
+#: .\templates\partials\_header.html:24
+#: .\templates\partials\_mobile_menu.html:11
+msgid "About Us"
+msgstr "معلومات عنا"
+
+#: .\templates\partials\_header.html:25
+#: .\templates\partials\_mobile_menu.html:12
+msgid "Careers"
+msgstr "الوظائف"
+
+#: .\templates\partials\_mobile_menu.html:4 .\templates\partials\_search.html:9
+msgid "Close"
+msgstr "إغلاق"
+
+#: .\templates\partials\_mobile_menu.html:18
+#: .\templates\partials\toolbar_bottom.html:37
+msgid "Wishlist"
+msgstr "المفضلة"
+
+#: .\templates\partials\_mobile_menu.html:21
+#: .\templates\partials\_search.html:15
+#: .\templates\partials\toolbar_bottom.html:18
+msgid "Search"
+msgstr "بحث"
+
+#: .\templates\partials\_mobile_menu.html:25
+msgid "Need help ?"
+msgstr "تحتاج مساعدة؟"
+
+#: .\templates\partials\_mobile_menu.html:36
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\templates\partials\_mobile_menu.html:50 .\trophy\settings.py:125
+msgid "Arabic"
+msgstr "العربية"
+
+#: .\templates\partials\_search.html:7
+msgid "Search our site"
+msgstr "ابحث في موقعنا"
+
+#: .\templates\partials\_search.html:25
+msgid "Quick link"
+msgstr "رابط سريع"
+
+#: .\templates\partials\_search.html:28
+msgid "Fashion"
+msgstr "أزياء"
+
+#: .\templates\partials\_search.html:31
+msgid "Men"
+msgstr "رجال"
+
+#: .\templates\partials\_search.html:34
+msgid "Women"
+msgstr "نساء"
+
+#: .\templates\partials\_search.html:37
+msgid "Accessories"
+msgstr "إكسسوارات"
+
+#: .\templates\partials\_search.html:42
+msgid "Need some inspiration?"
+msgstr "تحتاج إلى بعض الإلهام؟"
+
+#: .\templates\partials\_search.html:51
+msgid "Cotton jersey top"
+msgstr "قميص قطني"
+
+#: .\templates\partials\_search.html:65
+msgid "Mini crossbody bag"
+msgstr "حقيبة صغيرة متقاطعة"
+
+#: .\templates\partials\_search.html:78
+msgid "Oversized Printed T-shirt"
+msgstr "تيشيرت مطبوع واسع"
+
+#: .\templates\partials\_shopping_cart.html:8
+msgid "Shopping cart"
+msgstr "سلة التسوق"
+
+#: .\templates\partials\_shopping_cart.html:17
+msgid "Buy"
+msgstr "شراء"
+
+#: .\templates\partials\_shopping_cart.html:17
+msgid "more to enjoy"
+msgstr "المزيد للاستمتاع"
+
+#: .\templates\partials\_shopping_cart.html:17
+msgid "Free Shipping"
+msgstr "شحن مجاني"
+
+#: .\templates\partials\_shopping_cart.html:33
+msgid "T-shirt"
+msgstr "تيشيرت"
+
+#: .\templates\partials\_shopping_cart.html:34
+msgid "Light gray"
+msgstr "رمادي فاتح"
+
+#: .\templates\partials\_shopping_cart.html:42
+#: .\templates\partials\_shopping_cart.html:62
+msgid "Remove"
+msgstr "إزالة"
+
+#: .\templates\partials\_shopping_cart.html:54
+msgid "Oversized Motif T-shirt"
+msgstr "تيشيرت مطبوع واسع الزخرفة"
+
+#: .\templates\partials\_shopping_cart.html:71
+msgid "You may also like"
+msgstr "قد يعجبك أيضاً"
+
+#: .\templates\partials\_shopping_cart.html:85
+msgid "Loose Fit Hoodie"
+msgstr "هودي بقصة فضفاضة"
+
+#: .\templates\partials\_shopping_cart.html:108
+msgid "Add note"
+msgstr "أضف ملاحظة"
+
+#: .\templates\partials\_shopping_cart.html:113
+msgid "Subtotal"
+msgstr "الإجمالي الفرعي"
+
+#: .\templates\partials\_shopping_cart.html:119
+msgid "View Cart"
+msgstr "عرض السلة"
+
+#: .\templates\partials\_shopping_cart.html:122
+msgid "Check out"
+msgstr "الدفع"
+
+#: .\templates\partials\home\_marquee.html:22
+#: .\templates\partials\home\_marquee.html:38
+msgid "انضم إلى منصة TROPHY كبائع معتمد"
+msgstr "انضم إلى منصة TROPHY كبائع معتمد"
+
+# (The rest already in Arabic - no change needed)
+

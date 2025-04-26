@@ -1,0 +1,469 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-26 19:33+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\main\models.py:7
+msgid "Title"
+msgstr "Title"
+
+#: .\main\models.py:8
+msgid "Date"
+msgstr "Date"
+
+#: .\main\models.py:11
+msgid "Announcement"
+msgstr "Announcement"
+
+#: .\main\models.py:12
+msgid "Announcements"
+msgstr "Announcements"
+
+#: .\main\models.py:20
+msgid "Slider Image"
+msgstr "Slider Image"
+
+#: .\main\models.py:28
+msgid "Heading"
+msgstr "Heading"
+
+#: .\main\models.py:29
+msgid "Subheading"
+msgstr "Subheading"
+
+#: .\main\models.py:30
+msgid "Button Text"
+msgstr "Button Text"
+
+#: .\main\models.py:33
+msgid "Django URL Name"
+msgstr "Django URL Name"
+
+#: .\main\models.py:34
+msgid "Enter the Django URL name (e.g. 'about_page', 'blogs_page')."
+msgstr "Enter the Django URL name (e.g. 'about_page', 'blogs_page')."
+
+#: .\main\models.py:36
+msgid "Display Order"
+msgstr "Display Order"
+
+#: .\main\models.py:37
+msgid "Active"
+msgstr "Active"
+
+#: .\main\models.py:41
+msgid "Home Slider"
+msgstr "Home Slider"
+
+#: .\main\models.py:42
+msgid "Home Sliders"
+msgstr "Home Sliders"
+
+#: .\templates\partials\_footer.html:19
+#: .\templates\partials\_mobile_menu.html:28
+msgid "Address"
+msgstr "Address"
+
+#: .\templates\partials\_footer.html:22
+#: .\templates\partials\_mobile_menu.html:29
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\partials\_footer.html:25
+#: .\templates\partials\_mobile_menu.html:30
+msgid "Phone"
+msgstr "Phone"
+
+#: .\templates\partials\_footer.html:28
+msgid "Get direction"
+msgstr "Get directions"
+
+#: .\templates\partials\_footer.html:41 .\templates\partials\_footer.html:44
+msgid "Help"
+msgstr "Help"
+
+#: .\templates\partials\_footer.html:47
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+#: .\templates\partials\_footer.html:48
+msgid "Returns + Exchanges"
+msgstr "Returns + Exchanges"
+
+#: .\templates\partials\_footer.html:49
+msgid "Shipping"
+msgstr "Shipping"
+
+#: .\templates\partials\_footer.html:50
+msgid "Terms & Conditions"
+msgstr "Terms & Conditions"
+
+#: .\templates\partials\_footer.html:51
+msgid "FAQ’s"
+msgstr "FAQs"
+
+#: .\templates\partials\_footer.html:52
+msgid "Compare"
+msgstr "Compare"
+
+#: .\templates\partials\_footer.html:53
+msgid "My Wishlist"
+msgstr "My Wishlist"
+
+#: .\templates\partials\_footer.html:59 .\templates\partials\_footer.html:62
+msgid "About us"
+msgstr "About us"
+
+#: .\templates\partials\_footer.html:65
+msgid "Our Story"
+msgstr "Our Story"
+
+#: .\templates\partials\_footer.html:66
+msgid "Visit Our Store"
+msgstr "Visit Our Store"
+
+#: .\templates\partials\_footer.html:67 .\templates\partials\_header.html:26
+#: .\templates\partials\_mobile_menu.html:13
+msgid "Contact Us"
+msgstr "Contact Us"
+
+#: .\templates\partials\_footer.html:68
+#: .\templates\partials\toolbar_bottom.html:27
+msgid "Account"
+msgstr "Account"
+
+#: .\templates\partials\_footer.html:75 .\templates\partials\_footer.html:78
+msgid "Sign Up for Email"
+msgstr "Sign Up for Email"
+
+#: .\templates\partials\_footer.html:81
+msgid ""
+"Sign up to get first dibs on new arrivals, sales, exclusive content, events "
+"and more!"
+msgstr "Sign up to get first access to new arrivals, sales, exclusive content, events, and more!"
+
+#: .\templates\partials\_footer.html:85
+msgid "Enter your email...."
+msgstr "Enter your email..."
+
+#: .\templates\partials\_footer.html:89
+msgid "Subscribe"
+msgstr "Subscribe"
+
+#: .\templates\partials\_footer.html:98
+#: .\templates\partials\_mobile_menu.html:41
+msgid "France"
+msgstr "France"
+
+#: .\templates\partials\_footer.html:99
+#: .\templates\partials\_mobile_menu.html:42
+msgid "Germany"
+msgstr "Germany"
+
+#: .\templates\partials\_footer.html:100
+#: .\templates\partials\_mobile_menu.html:43
+msgid "United States"
+msgstr "United States"
+
+#: .\templates\partials\_footer.html:101
+#: .\templates\partials\_mobile_menu.html:44
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: .\templates\partials\_footer.html:106
+#: .\templates\partials\_mobile_menu.html:49 .\trophy\settings.py:124
+msgid "English"
+msgstr "English"
+
+#: .\templates\partials\_footer.html:107
+msgid "العربية"
+msgstr "Arabic"
+
+#: .\templates\partials\_footer.html:108
+#: .\templates\partials\_mobile_menu.html:51
+msgid "Simplified Chinese"
+msgstr "Simplified Chinese"
+
+#: .\templates\partials\_footer.html:109
+#: .\templates\partials\_mobile_menu.html:52
+msgid "Urdu"
+msgstr "Urdu"
+
+#: .\templates\partials\_footer.html:125
+msgid "All Rights Reserved"
+msgstr "All Rights Reserved"
+
+#: .\templates\partials\_header.html:21
+#: .\templates\partials\_mobile_menu.html:8
+msgid "Home"
+msgstr "Home"
+
+#: .\templates\partials\_header.html:22
+#: .\templates\partials\_mobile_menu.html:9
+msgid "Categories"
+msgstr "Categories"
+
+#: .\templates\partials\_header.html:23
+#: .\templates\partials\_mobile_menu.html:10
+msgid "Authorized sellers"
+msgstr "Authorized Sellers"
+
+#: .\templates\partials\_header.html:24
+#: .\templates\partials\_mobile_menu.html:11
+msgid "About Us"
+msgstr "About Us"
+
+#: .\templates\partials\_header.html:25
+#: .\templates\partials\_mobile_menu.html:12
+msgid "Careers"
+msgstr "Careers"
+
+#: .\templates\partials\_mobile_menu.html:4 .\templates\partials\_search.html:9
+msgid "Close"
+msgstr "Close"
+
+#: .\templates\partials\_mobile_menu.html:18
+#: .\templates\partials\toolbar_bottom.html:37
+msgid "Wishlist"
+msgstr "Wishlist"
+
+#: .\templates\partials\_mobile_menu.html:21
+#: .\templates\partials\_search.html:15
+#: .\templates\partials\toolbar_bottom.html:18
+msgid "Search"
+msgstr "Search"
+
+#: .\templates\partials\_mobile_menu.html:25
+msgid "Need help ?"
+msgstr "Need help?"
+
+#: .\templates\partials\_mobile_menu.html:36
+msgid "Login"
+msgstr "Login"
+
+#: .\templates\partials\_mobile_menu.html:50 .\trophy\settings.py:125
+msgid "Arabic"
+msgstr "Arabic"
+
+#: .\templates\partials\_search.html:7
+msgid "Search our site"
+msgstr "Search our site"
+
+#: .\templates\partials\_search.html:25
+msgid "Quick link"
+msgstr "Quick Link"
+
+#: .\templates\partials\_search.html:28
+msgid "Fashion"
+msgstr "Fashion"
+
+#: .\templates\partials\_search.html:31
+msgid "Men"
+msgstr "Men"
+
+#: .\templates\partials\_search.html:34
+msgid "Women"
+msgstr "Women"
+
+#: .\templates\partials\_search.html:37
+msgid "Accessories"
+msgstr "Accessories"
+
+#: .\templates\partials\_search.html:42
+msgid "Need some inspiration?"
+msgstr "Need some inspiration?"
+
+#: .\templates\partials\_search.html:51
+msgid "Cotton jersey top"
+msgstr "Cotton Jersey Top"
+
+#: .\templates\partials\_search.html:65
+msgid "Mini crossbody bag"
+msgstr "Mini Crossbody Bag"
+
+#: .\templates\partials\_search.html:78
+msgid "Oversized Printed T-shirt"
+msgstr "Oversized Printed T-shirt"
+
+#: .\templates\partials\_shopping_cart.html:8
+msgid "Shopping cart"
+msgstr "Shopping Cart"
+
+#: .\templates\partials\_shopping_cart.html:17
+msgid "Buy"
+msgstr "Buy"
+
+#: .\templates\partials\_shopping_cart.html:17
+msgid "more to enjoy"
+msgstr "more to enjoy"
+
+#: .\templates\partials\_shopping_cart.html:17
+msgid "Free Shipping"
+msgstr "Free Shipping"
+
+#: .\templates\partials\_shopping_cart.html:33
+msgid "T-shirt"
+msgstr "T-shirt"
+
+#: .\templates\partials\_shopping_cart.html:34
+msgid "Light gray"
+msgstr "Light Gray"
+
+#: .\templates\partials\_shopping_cart.html:42
+#: .\templates\partials\_shopping_cart.html:62
+msgid "Remove"
+msgstr "Remove"
+
+#: .\templates\partials\_shopping_cart.html:54
+msgid "Oversized Motif T-shirt"
+msgstr "Oversized Motif T-shirt"
+
+#: .\templates\partials\_shopping_cart.html:71
+msgid "You may also like"
+msgstr "You may also like"
+
+#: .\templates\partials\_shopping_cart.html:85
+msgid "Loose Fit Hoodie"
+msgstr "Loose Fit Hoodie"
+
+#: .\templates\partials\_shopping_cart.html:108
+msgid "Add note"
+msgstr "Add Note"
+
+#: .\templates\partials\_shopping_cart.html:113
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: .\templates\partials\_shopping_cart.html:119
+msgid "View Cart"
+msgstr "View Cart"
+
+#: .\templates\partials\_shopping_cart.html:122
+msgid "Check out"
+msgstr "Checkout"
+
+#: .\templates\partials\home\_marquee.html:22
+#: .\templates\partials\home\_marquee.html:38
+msgid "انضم إلى منصة TROPHY كبائع معتمد"
+msgstr "Join TROPHY Platform as an Authorized Seller"
+
+#: .\templates\partials\home\_marquee.html:30
+#: .\templates\partials\home\_marquee.html:46
+msgid "املأ النموذج التالي للانضمام إلى منصة TROPHY كبائع معتمد وابدأ في عرض منتجاتك لآلاف العملاء المحتملين"
+msgstr "Fill out the form below to join the TROPHY platform as an authorized seller and start showcasing your products to thousands of potential customers."
+
+#: .\templates\partials\home\_slider.html:35
+msgid "ابدأ البيع على TROPHY"
+msgstr "Start Selling on TROPHY"
+
+#: .\templates\partials\home\_slider.html:36
+msgid "فرصتك للوصول إلى آلاف العملاء"
+msgstr "Your Opportunity to Reach Thousands of Customers"
+
+#: .\templates\partials\home\_slider.html:39
+msgid "انضم الآن"
+msgstr "Join Now"
+
+#: .\templates\partials\home\_slider.html:54
+msgid "سهولة في تسجيل المنتجات"
+msgstr "Easy Product Registration"
+
+#: .\templates\partials\home\_slider.html:55
+msgid "اعرض منتجاتك ببضع نقرات"
+msgstr "Showcase Your Products with a Few Clicks"
+
+#: .\templates\partials\home\_slider.html:58
+msgid "ارفع منتجك"
+msgstr "Upload Your Product"
+
+#: .\templates\partials\home\_slider.html:73
+msgid "دعم متكامل للبائعين"
+msgstr "Comprehensive Seller Support"
+
+#: .\templates\partials\home\_slider.html:74
+msgid "نحن معك في كل خطوة"
+msgstr "We Are With You Every Step"
+
+#: .\templates\partials\home\_slider.html:77
+msgid "تواصل معنا"
+msgstr "Contact Us"
+
+#: .\templates\partials\login\_forget_password.html:7
+msgid "Reset your password"
+msgstr "Reset Your Password"
+
+#: .\templates\partials\login\_forget_password.html:13
+msgid "Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails"
+msgstr "Sign up for early access to sales, new arrivals, trends, and promotions. To unsubscribe, click the link in our emails."
+
+#: .\templates\partials\login\_forget_password.html:17
+#: .\templates\partials\login\_login.html:14
+#: .\templates\partials\login\_register.html:23
+msgid "Email *"
+msgstr "Email *"
+
+#: .\templates\partials\login\_forget_password.html:20
+msgid "Cancel"
+msgstr "Cancel"
+
+#: .\templates\partials\login\_forget_password.html:25
+msgid "Reset password"
+msgstr "Reset Password"
+
+#: .\templates\partials\login\_login.html:7
+#: .\templates\partials\login\_login.html:26
+msgid "Log in"
+msgstr "Log In"
+
+#: .\templates\partials\login\_login.html:18
+#: .\templates\partials\login\_register.html:27
+msgid "Password *"
+msgstr "Password *"
+
+#: .\templates\partials\login\_login.html:21
+msgid "Forgot your password?"
+msgstr "Forgot Your Password?"
+
+#: .\templates\partials\login\_login.html:31
+msgid "New customer? Create your account"
+msgstr "New Customer? Create Your Account"
+
+#: .\templates\partials\login\_register.html:8
+#: .\templates\partials\login\_register.html:32
+msgid "Register"
+msgstr "Register"
+
+#: .\templates\partials\login\_register.html:15
+msgid "First name"
+msgstr "First Name"
+
+#: .\templates\partials\login\_register.html:19
+msgid "Last name"
+msgstr "Last Name"
+
+#: .\templates\partials\login\_register.html:37
+msgid "Already have an account? Log in here"
+msgstr "Already Have an Account? Log In Here"
+
+#: .\templates\partials\toolbar_bottom.html:9
+msgid "Shop"
+msgstr "Shop"
+
+#: .\templates\partials\toolbar_bottom.html:47
+msgid "Cart"
+msgstr "Cart"

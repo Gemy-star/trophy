@@ -1,0 +1,72 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+.mypy_cache/
+.pytest_cache/
+*.env
+*.env.*
+
+# Django stuff:
+*.log
+local_settings.py
+staticfiles/
+static_root/
+static_cdn/
+
+# Django migrations (optional, if you want fresh DBs per environment)
+**/migrations/*.pyc
+**/migrations/__pycache__/
+**/migrations/000*
+
+# VS Code and other editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Compiled source #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Test output
+coverage/
+htmlcov/
+.tox/
+.nox/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Node stuff (if using Tailwind, npm, etc.)
+node_modules/
+
+# SASS / SCSS cache
+.sass-cache/
+
+# Backup files
+*.bak
+*.swp
+*.tmp
+
+# GitHub Codespaces, Codespaces-specific
+.gitpod.yml
+.devcontainer/

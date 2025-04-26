@@ -1,0 +1,59 @@
+{% load static i18n %}
+<!-- mobile menu -->
+<div class="offcanvas offcanvas-start canvas-mb trophy_background" id="mobileMenu">
+    <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="{% trans 'Close' %}"></span>
+     <div class="mb-canvas-content" style="direction: {% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %};">
+        <div class="mb-body">
+            <ul class="nav-ul-mb" id="wrapper-menu-navigation">
+                <li class="nav-mb-item"><a href="#" class="item-link">{% trans "Home" %}</a></li>
+                <li class="nav-mb-item"><a href="#" class="item-link">{% trans "Categories" %}</a></li>
+                <li class="nav-mb-item"><a href="#" class="item-link">{% trans "Authorized sellers" %}</a></li>
+                <li class="nav-mb-item"><a href="#" class="item-link">{% trans "About Us" %}</a></li>
+                <li class="nav-mb-item"><a href="#" class="item-link">{% trans "Careers" %}</a></li>
+                <li class="nav-mb-item"><a href="#" class="item-link">{% trans "Contact Us" %}</a></li>
+            </ul>
+            <div class="mb-other-content">
+                <div class="d-flex group-icon">
+                    <a href="" class="site-nav-icon menu-btn-bg-color">
+                        <i class="icon icon-heart text-white"></i>{% trans "Wishlist" %}
+                    </a>
+                    <a href="" class="site-nav-icon menu-btn-bg-color">
+                        <i class="icon icon-search text-white"></i>{% trans "Search" %}
+                    </a>
+                </div>
+                <div class="mb-notice">
+                    <a href="" class="text-need menu-btn-color">{% trans "Need help ?" %}</a>
+                </div>
+                <ul class="mb-info" style="direction: {% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %};">
+                    <li>{% trans "Address" %}: 1234 Fashion Street, Suite 567, <br> New York, NY 10001</li>
+                    <li>{% trans "Email" %}: <b>info@fashionshop.com</b></li>
+                    <li>{% trans "Phone" %}: <b>(212) 555-1234</b></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mb-bottom">
+            <a href="" class="site-nav-icon menu-btn-bg-color">
+                <i class="icon icon-account"></i>{% trans "Login" %}
+            </a>
+            <div class="bottom-bar-language">
+                <div class="tf-currencies">
+                    <select class="image-select center style-default type-currencies">
+                        <option data-thumbnail="{% static 'images/country/fr.svg' %}">EUR <span>€ | {% trans "France" %}</span></option>
+                        <option data-thumbnail="{% static 'images/country/de.svg' %}">EUR <span>€ | {% trans "Germany" %}</span></option>
+                        <option selected data-thumbnail="{% static 'images/country/us.svg' %}">USD <span>$ | {% trans "United States" %}</span></option>
+                        <option data-thumbnail="{% static 'images/country/vn.svg' %}">VND <span>₫ | {% trans "Vietnam" %}</span></option>
+                    </select>
+                </div>
+                <div class="tf-languages">
+                    <select class="image-select center style-default type-languages">
+                        <option>{% trans "English" %}</option>
+                        <option>{% trans "Arabic" %}</option>
+                        <option>{% trans "Simplified Chinese" %}</option>
+                        <option>{% trans "Urdu" %}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /mobile menu -->

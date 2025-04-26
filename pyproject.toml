@@ -1,0 +1,24 @@
+[project]
+name = "trophy"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Mohamed Ismail",email = "mohamed.g.ismail@orange.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11,<4"
+dependencies = [
+    "django (>=5.2,<6.0)",
+    "pillow (>=11.2.1,<12.0.0)",
+    "django-imagekit (>=5.0.0,<6.0.0)",
+    "django-modeltranslation (>=0.19.14,<0.20.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+django-silk = "^5.3.2"
+
