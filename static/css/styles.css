@@ -259,7 +259,9 @@ p {
   align-items: center;
   gap: var(--spacing-xs);
 }
-
+  .content {
+    padding: 0 5rem;
+  }
 /* ===== قسم الترويج الرئيسي (Hero Section) ===== */
 .hero {
   background-color: var(--primary-color);
@@ -367,6 +369,43 @@ p {
   margin-bottom: var(--spacing-md);
   color: var(--dark-gray-color);
 }
+.go-to-top {
+  position: fixed;
+  bottom: 30px;     /* Distance from bottom */
+  right: 30px;      /* Distance from right */
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 2px 6px var(--secondary-color);
+}
+
+
+
+.whatsapp {
+  position: fixed;
+  bottom: 30px;     /* Distance from bottom */
+  left: 30px;      /* Distance from right */
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 2px 6px var(--secondary-color);
+}
+
+
 
 .vendor-actions {
   display: flex;
@@ -443,7 +482,7 @@ p {
   .header-container {
     flex-wrap: wrap;
   }
-  
+
   .nav-menu {
     order: 3;
     width: 100%;
@@ -483,6 +522,11 @@ p {
 }
 
 @media (max-width: 576px) {
+  .content {
+  padding: 0 2.7rem;
+  margin: 0 auto;
+
+}
   .user-actions {
     flex-wrap: wrap;
     justify-content: center;

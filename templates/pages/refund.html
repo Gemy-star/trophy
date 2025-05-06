@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
+{% block title %}
+    {% trans 'سياسة الخصوصية' %}
+{% endblock title %}
 
 {% block content %}
-  <section class="privacy-policy container">
-    <h1>
+  <section class="privacy-policy">
+  <div class="container content">
+         <h1>
       <i class="fas fa-user-shield"></i>
       {% trans "سياسة الخصوصية" %}
     </h1>
@@ -60,7 +63,9 @@
       {% trans "التواصل معنا" %}
     </h2>
     <p>{% trans "إذا كانت لديك أسئلة حول سياسة الخصوصية، يرجى التواصل معنا عبر" %} <a href="mailto:support@trophy.com">support@trophy.com</a></p>
-  </section>
+
+  </div>
+   </section>
 
 
 

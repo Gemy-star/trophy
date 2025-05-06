@@ -1,13 +1,16 @@
 // ملف JavaScript الرئيسي لمنصة تروفي
 // تاريخ الإنشاء: 21 أبريل 2025
 
+  /* Go Top
+  -------------------------------------------------------------------------------------*/
+
+
 // التأكد من تحميل المستند بالكامل قبل تنفيذ أي كود
 document.addEventListener('DOMContentLoaded', function() {
     // إضافة سلوك القائمة المتجاوبة للشاشات الصغيرة
     const menuToggle = document.createElement('button');
     menuToggle.classList.add('menu-toggle');
     menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    
     const navMenu = document.querySelector('.nav-menu');
     const headerContainer = document.querySelector('.header-container');
     

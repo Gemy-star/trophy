@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% load static i18n %}
+{% block title %}
+    {% trans 'سياسة الخصوصية' %}
+{% endblock title %}
 
 {% block content %}
 <section class="privacy-policy">
-    <div class="container">
+    <div class="container content">
         <h1><i class="fas fa-user-shield"></i> {% trans "سياسة الخصوصية – منصة TROPHY" %}</h1>
 
         <p><i class="fas fa-info-circle"></i> {% trans "في منصة" %} <strong>TROPHY</strong> {% trans '("المنصة"، "نحن")، نُقدّر خصوصيتك وملتزمون بحماية بياناتك الشخصية وفقًا لأنظمة المملكة العربية السعودية، بما في ذلك نظام حماية البيانات الشخصية الصادر عن الهيئة السعودية للبيانات والذكاء الاصطناعي (سدايا).' %}</p>
