@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block content %}
+<section class="privacy-policy">
+    <div class="container">
+        <h1><i class="fas fa-user-shield"></i> {% trans "سياسة الخصوصية – منصة TROPHY" %}</h1>
+
+        <p><i class="fas fa-info-circle"></i> {% trans "في منصة" %} <strong>TROPHY</strong> {% trans '("المنصة"، "نحن")، نُقدّر خصوصيتك وملتزمون بحماية بياناتك الشخصية وفقًا لأنظمة المملكة العربية السعودية، بما في ذلك نظام حماية البيانات الشخصية الصادر عن الهيئة السعودية للبيانات والذكاء الاصطناعي (سدايا).' %}</p>
+
+        <h2><i class="fas fa-database"></i> {% trans "المعلومات التي نقوم بجمعها" %}</h2>
+        <ul>
+            <li><i class="fas fa-id-card"></i> {% trans "معلومات تعريفية: مثل الاسم، رقم الجوال، عنوان البريد الإلكتروني، عنوان الشحن." %}</li>
+            <li><i class="fas fa-desktop"></i> {% trans "معلومات تقنية واستخدام: مثل عنوان الـ IP، نوع الجهاز، المتصفح، الصفحات التي تزورها، وتفاعلك مع المنصة." %}</li>
+            <li><i class="fas fa-shopping-cart"></i> {% trans "معلومات الطلبات والمعاملات: تشمل تفاصيل المنتجات المطلوبة وتواريخ الطلب، ولا نقوم بتخزين بيانات الدفع الحساسة." %}</li>
+        </ul>
+
+        <h2><i class="fas fa-cogs"></i> {% trans "كيف نستخدم بياناتك" %}</h2>
+        <ul>
+            <li><i class="fas fa-user-cog"></i> {% trans "إدارة الحساب وتقديم الخدمات الأساسية للمنصة." %}</li>
+            <li><i class="fas fa-shipping-fast"></i> {% trans "معالجة الطلبات وتنسيق عمليات التوصيل مع البائعين المعتمدين." %}</li>
+            <li><i class="fas fa-bullhorn"></i> {% trans "التواصل معك بشأن الطلبات أو العروض الترويجية (بعد موافقتك)." %}</li>
+            <li><i class="fas fa-chart-line"></i> {% trans "تحليل البيانات لتحسين الأداء وتجربة المستخدم." %}</li>
+            <li><i class="fas fa-balance-scale"></i> {% trans "الامتثال للالتزامات النظامية والتنظيمية." %}</li>
+        </ul>
+
+        <h2><i class="fas fa-share-alt"></i> {% trans "مشاركة البيانات" %}</h2>
+        <ul>
+            <li><i class="fas fa-store"></i> {% trans "مع البائعين المعتمدين: لمساعدتهم على تنفيذ الطلبات." %}</li>
+            <li><i class="fas fa-server"></i> {% trans "مزودي الخدمات: مثل الاستضافة والتحليل والدعم الفني بموجب اتفاقيات سرية." %}</li>
+            <li><i class="fas fa-gavel"></i> {% trans "الجهات الرسمية: إذا طُلب ذلك نظاميًا أو لحماية الحقوق." %}</li>
+        </ul>
+
+        <h2><i class="fas fa-lock"></i> {% trans "أمن البيانات" %}</h2>
+        <p>{% trans "نطبق تدابير أمنية تنظيمية وتقنية لحماية بياناتك من الوصول غير المصرح به، ونراجعها بانتظام." %}</p>
+
+        <h2><i class="fas fa-user-check"></i> {% trans "حقوقك بموجب النظام" %}</h2>
+        <ul>
+            <li><i class="fas fa-eye"></i> {% trans "طلب الوصول إلى بياناتك أو نسخة منها." %}</li>
+            <li><i class="fas fa-pen"></i> {% trans "طلب تصحيح البيانات غير الدقيقة." %}</li>
+            <li><i class="fas fa-trash-alt"></i> {% trans "طلب حذف البيانات في حالات معينة." %}</li>
+            <li><i class="fas fa-undo"></i> {% trans "سحب الموافقة على الاستخدام." %}</li>
+        </ul>
+
+        <h2><i class="fas fa-headset"></i> {% trans "التواصل معنا" %}</h2>
+        <ul>
+            <li><i class="fas fa-envelope"></i> {% trans "البريد الإلكتروني:" %} <a href="mailto:info@trophy.sa">info@trophy.sa</a></li>
+            <li><i class="fas fa-phone-alt"></i> {% trans "رقم الهاتف:" %} <a href="tel:0530128000">0530128000</a></li>
+        </ul>
+
+        <h2><i class="fas fa-sync-alt"></i> {% trans "التحديثات على السياسة" %}</h2>
+        <p>{% trans "نقوم بتحديث السياسة دوريًا بما يتماشى مع التغيرات، وسيتم نشرها على هذه الصفحة." %}</p>
+
+        <p><i class="fas fa-balance-scale-left"></i> <strong>{% trans "ملاحظة قانونية:" %}</strong><br>
+        {% trans "تم إعداد هذه السياسة لتتماشى مع نظام حماية البيانات الشخصية في المملكة. يُنصح بمراجعتها من قبل مستشار قانوني متخصص لضمان الامتثال الكامل." %}</p>
+    </div>
+</section>
+
+
+{% endblock content %}

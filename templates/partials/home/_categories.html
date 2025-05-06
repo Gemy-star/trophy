@@ -1,104 +1,104 @@
-<!-- Categories -->
+
 {% load static i18n %}
-<section class="flat-spacing-14 trophy_background">
+{% block css %}
+    <style>
+    .category-card:hover {
+    transform: scale(1.05);
+}
+.swiper-slide {
+    width: auto; /* allow Swiper to control width */
+}
+.trophy-color {
+    color: #1A1A3A !important;
+}
+    </style>
+
+{% endblock css %}
+<section id="categories" class="section categories">
     <div class="container">
-        <div class="flat-title wow fadeInUp" data-wow-delay="0s">
-            <span class="title">{% trans "تسوق حسب الأقسام" %}</span>
-        </div>
-        <div class="hover-sw-nav">
-            <div class="swiper tf-sw-collection" data-preview="4" data-tablet="2" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-loop="false" data-auto-play="false">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" lazy="true">
-                        <div class="collection-item style-2 hover-img">
-                            <div class="collection-inner">
-                                <a href="shop-collection-sub.html" class="collection-image img-style rounded-0">
-                                    <img class="lazyload" data-src="{% static 'images/trophy/7.jpeg' %}" src="{% static 'images/trophy/7.jpeg' %}" alt="collection-img">
-                                </a>
-                                <div class="collection-content">
-                                    <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon fs-15 menu-btn-bg-color">
-                                        <span>{% trans "أعلام" %}</span>
-                                        <i class="icon icon-arrow1-top-left "></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <h2>{% trans "الأقسام الرئيسية" %}</h2>
 
-                    <div class="swiper-slide" lazy="true">
-                        <div class="collection-item style-2 hover-img">
-                            <div class="collection-inner">
-                                <a href="shop-collection-sub.html" class="collection-image img-style rounded-0">
-                                    <img class="lazyload" data-src="{% static 'images/trophy/4.jpeg' %}" src="{% static 'images/trophy/4.jpeg' %}" alt="collection-img">
-                                </a>
-                                <div class="collection-content">
-                                    <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon fs-15 menu-btn-bg-color">
-                                        <span >{% trans "لوازم دعائية" %}</span>
-                                        <i class="icon icon-arrow1-top-left"></i>
-                                    </a>
-                                </div>
-                            </div>
+        <div class="swiper categories-swiper">
+            <div class="swiper-wrapper">
+                {% if categories %}
+                    {% for category in categories %}
+                        <div class="swiper-slide">
+                            <a href="#" class="category-card" style="background-color: {{ category.background_color }}">
+                                <h3>{{ category.title }}</h3>
+                            </a>
                         </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="swiper-slide">
+                        <a href="#" class="category-card green">
+                            <h3>{% trans "أعلام" %}</h3>
+                        </a>
                     </div>
-
-                    <div class="swiper-slide" lazy="true">
-                        <div class="collection-item style-2 hover-img">
-                            <div class="collection-inner">
-                                <a href="shop-collection-sub.html" class="collection-image img-style rounded-0">
-                                    <img class="lazyload" data-src="{% static 'images/trophy/8.jpeg' %}" src="{% static 'images/trophy/8.jpeg' %}" alt="collection-img">
-                                </a>
-                                <div class="collection-content">
-                                    <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon fs-15 menu-btn-bg-color">
-                                        <span>{% trans "مكائن وآلات" %}</span>
-                                        <i class="icon icon-arrow1-top-left"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="category-card blue">
+                            <h3>{% trans "لوازم دعائية" %}</h3>
+                        </a>
                     </div>
-
-                    <div class="swiper-slide" lazy="true">
-                        <div class="collection-item style-2 hover-img">
-                            <div class="collection-inner">
-                                <a href="shop-collection-sub.html" class="collection-image img-style rounded-0">
-                                    <img class="lazyload" data-src="{% static 'images/trophy/1.jpeg' %}" src="{% static 'images/trophy/1.jpeg' %}" alt="collection-img">
-                                </a>
-                                <div class="collection-content">
-                                    <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon fs-15 menu-btn-bg-color">
-                                        <span>{% trans "هدايا رياضية" %}</span>
-                                        <i class="icon icon-arrow1-top-left"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="category-card yellow">
+                            <h3>{% trans "مكائن وآلات" %}</h3>
+                        </a>
                     </div>
-
-                    <div class="swiper-slide" lazy="true">
-                        <div class="collection-item style-2 hover-img">
-                            <div class="collection-inner">
-                                <a href="shop-collection-sub.html" class="collection-image img-style rounded-0">
-                                    <img class="lazyload" data-src="{% static 'images/trophy/2.jpeg' %}" src="{% static 'images/trophy/2.jpeg' %}" alt="collection-img">
-                                </a>
-                                <div class="collection-content">
-                                    <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon fs-15 menu-btn-bg-color">
-                                        <span>{% trans "هدايا دعائية" %}</span>
-                                        <i class="icon icon-arrow1-top-left"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                         <div class="swiper-slide">
+                                        <a href="#" class="category-card green">
+                    <h3>{% trans "هدايا دعائية" %}</h3>
+                </a>
                     </div>
+                         <div class="swiper-slide">
+                                     <a href="#" class="category-card pink">
+                    <h3>{% trans "هدايا الكترونية" %}</h3>
+                </a>
+                    </div>
+                         <div class="swiper-slide">
+                                       <a href="#" class="category-card blue">
+                    <h3>{% trans "أكواب متنوعة" %}</h3>
+                </a>
 
-                </div>
+                    </div>
+                         <div class="swiper-slide">
+                                 <a href="#" class="category-card pink">
+                    <h3>{% trans "شنط" %}</h3>
+                </a>
+                    </div>
+                    <!-- Add remaining static slides similarly -->
+                {% endif %}
             </div>
 
-            <div class="nav-sw nav-next-slider nav-next-collection box-icon w_46 round">
-                <span class="icon icon-arrow-left"></span>
-            </div>
-            <div class="nav-sw nav-prev-slider nav-prev-collection box-icon w_46 round">
-                <span class="icon icon-arrow-right"></span>
-            </div>
-            <div class="sw-dots style-2 sw-pagination-collection justify-content-center"></div>
+            <!-- Optional: navigation buttons -->
+            <div class="swiper-button-next trophy-color"></div>
+            <div class="swiper-button-prev trophy-color"></div>
         </div>
     </div>
 </section>
-<!-- /Categories -->
+
+{% block js %}
+    <script>
+    var swiper = new Swiper('.categories-swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+        freeMode: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            576: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 4,
+            }
+        }
+    });
+</script>
+
+
+{% endblock js %}

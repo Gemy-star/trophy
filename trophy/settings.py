@@ -140,3 +140,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+
+
+AUTH_USER_MODEL = 'main.User'

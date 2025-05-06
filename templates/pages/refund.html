@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% block content %}
+  <section class="privacy-policy container">
+    <h1>
+      <i class="fas fa-user-shield"></i>
+      {% trans "سياسة الخصوصية" %}
+    </h1>
+
+    <p>{% trans "خصوصيتك مهمة بالنسبة لنا. توضح هذه السياسة كيفية جمع واستخدام وحماية معلوماتك الشخصية عند استخدامك لموقعنا." %}</p>
+
+    <h2>
+      <i class="fas fa-database"></i>
+      {% trans "المعلومات التي نجمعها" %}
+    </h2>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> {% trans "الاسم الكامل ومعلومات الاتصال" %}</li>
+      <li><i class="fas fa-check-circle"></i> {% trans "عنوان البريد الإلكتروني ورقم الهاتف" %}</li>
+      <li><i class="fas fa-check-circle"></i> {% trans "معلومات الاستخدام وسجل التصفح" %}</li>
+    </ul>
+
+    <h2>
+      <i class="fas fa-lock"></i>
+      {% trans "كيف نستخدم المعلومات" %}
+    </h2>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> {% trans "تحسين تجربتك على الموقع" %}</li>
+      <li><i class="fas fa-check-circle"></i> {% trans "الاتصال بك بشأن الخدمات والعروض" %}</li>
+      <li><i class="fas fa-check-circle"></i> {% trans "الامتثال للمتطلبات القانونية" %}</li>
+    </ul>
+
+    <h2>
+      <i class="fas fa-user-secret"></i>
+      {% trans "حماية المعلومات" %}
+    </h2>
+    <p>{% trans "نستخدم إجراءات أمان متقدمة لحماية بياناتك من الوصول غير المصرح به." %}</p>
+
+    <h2>
+      <i class="fas fa-share-alt"></i>
+      {% trans "مشاركة المعلومات" %}
+    </h2>
+    <p>{% trans "لا نشارك معلوماتك الشخصية مع أطراف ثالثة إلا في حالات قانونية أو لتحسين خدماتنا." %}</p>
+
+    <h2>
+      <i class="fas fa-user-cog"></i>
+      {% trans "حقوق المستخدم" %}
+    </h2>
+    <p>{% trans "يحق لك الوصول إلى بياناتك أو تعديلها أو طلب حذفها في أي وقت." %}</p>
+
+    <h2>
+      <i class="fas fa-calendar-alt"></i>
+      {% trans "التغييرات على السياسة" %}
+    </h2>
+    <p>{% trans "قد نقوم بتحديث هذه السياسة من وقت لآخر. سيتم نشر التغييرات على هذه الصفحة." %}</p>
+
+    <h2>
+      <i class="fas fa-envelope"></i>
+      {% trans "التواصل معنا" %}
+    </h2>
+    <p>{% trans "إذا كانت لديك أسئلة حول سياسة الخصوصية، يرجى التواصل معنا عبر" %} <a href="mailto:support@trophy.com">support@trophy.com</a></p>
+  </section>
+
+
+
+
+{% endblock content %}

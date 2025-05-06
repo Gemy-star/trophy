@@ -1,141 +1,51 @@
 {% load static %}
 {% load i18n %}
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-section">
+            <img src="{% static 'images/logo/logo.png' %}" class="logo-img" alt="{% trans 'logo' %}">
+            <p>{% trans "منصة TROPHY هي المنصة الأولى في المملكة العربية السعودية المتخصصة في الهدايا الدعائية، تربط بين البائعين والمشترين بطريقة سهلة وفعالة." %}</p>
+        </div>
 
-<!-- Footer -->
-<footer id="footer" class="footer trophy_background" style="direction: {% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %};">
-    <div class="footer-wrap wow fadeIn" data-wow-delay="0s">
-        <div class="footer-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3 col-md-6 col-12">
-                        <div class="footer-infor">
-                            <div class="footer-logo">
-                                <a href="{% url 'home' %}">
-                                    <img src="{% static 'images/logo/logo.png' %}" alt="">
-                                </a>
-                            </div>
-                            <ul>
-                                <li>
-                                    <p>{% trans "Address" %}: 1234 Fashion Street, Suite 567, <br> New York, NY 10001</p>
-                                </li>
-                                <li>
-                                    <p>{% trans "Email" %}: <a href="#" class="menu-btn-color">info@fashionshop.com</a></p>
-                                </li>
-                                <li>
-                                    <p>{% trans "Phone" %}: <a href="#" class="menu-btn-color">(212) 555-1234</a></p>
-                                </li>
-                            </ul>
-                            <a href="#" class="tf-btn btn-line">{% trans "Get direction" %}<i class="icon icon-arrow1-top-left"></i></a>
-                            <ul class="tf-social-icon d-flex gap-10 style-white">
-                                <li><a href="#" class="box-icon w_34 round social-facebook social-line"><i class="icon fs-14 icon-fb"></i></a></li>
-                                <li><a href="#" class="box-icon w_34 round social-twiter social-line"><i class="icon fs-12 icon-Icon-x"></i></a></li>
-                                <li><a href="#" class="box-icon w_34 round social-instagram social-line"><i class="icon fs-14 icon-instagram"></i></a></li>
-                                <li><a href="#" class="box-icon w_34 round social-tiktok social-line"><i class="icon fs-14 icon-tiktok"></i></a></li>
-                                <li><a href="#" class="box-icon w_34 round social-pinterest social-line"><i class="icon fs-14 icon-pinterest-1"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 col-12 footer-col-block">
-                        <div class="footer-heading footer-heading-desktop">
-                            <h6>{% trans "Help" %}</h6>
-                        </div>
-                        <div class="footer-heading footer-heading-moblie">
-                            <h6>{% trans "Help" %}</h6>
-                        </div>
-                        <ul class="footer-menu-list tf-collapse-content">
-                            <li><a href="#" class="footer-menu_item">{% trans "Privacy Policy" %}</a></li>
-                            <li><a href="#" class="footer-menu_item">{% trans "Returns + Exchanges" %}</a></li>
-                            <li><a href="#" class="footer-menu_item">{% trans "Shipping" %}</a></li>
-                            <li><a href="" class="footer-menu_item">{% trans "Terms & Conditions" %}</a></li>
-                            <li><a href="" class="footer-menu_item">{% trans "FAQ’s" %}</a></li>
-                            <li><a href="" class="footer-menu_item">{% trans "Compare" %}</a></li>
-                            <li><a href="" class="footer-menu_item">{% trans "My Wishlist" %}</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 col-12 footer-col-block">
-                        <div class="footer-heading footer-heading-desktop">
-                            <h6>{% trans "About us" %}</h6>
-                        </div>
-                        <div class="footer-heading footer-heading-moblie">
-                            <h6>{% trans "About us" %}</h6>
-                        </div>
-                        <ul class="footer-menu-list tf-collapse-content">
-                            <li><a href="" class="footer-menu_item">{% trans "Our Story" %}</a></li>
-                            <li><a href="" class="footer-menu_item">{% trans "Visit Our Store" %}</a></li>
-                            <li><a href="" class="footer-menu_item">{% trans "Contact Us" %}</a></li>
-                            <li><a href="" class="footer-menu_item">{% trans "Account" %}</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 col-12">
-                        <div class="footer-newsletter footer-col-block">
-                            <div class="footer-heading footer-heading-desktop">
-                                <h6>{% trans "Sign Up for Email" %}</h6>
-                            </div>
-                            <div class="footer-heading footer-heading-moblie">
-                                <h6>{% trans "Sign Up for Email" %}</h6>
-                            </div>
-                            <div class="tf-collapse-content">
-                                <div class="footer-menu_item">{% trans "Sign up to get first dibs on new arrivals, sales, exclusive content, events and more!" %}</div>
-                                <form class="form-newsletter" id="subscribe-form" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
-                                    <div id="subscribe-content">
-                                        <fieldset class="email">
-                                            <input type="email" name="email-form" id="subscribe-email" placeholder="{% trans 'Enter your email....' %}" tabindex="0" aria-required="true">
-                                        </fieldset>
-                                        <div class="button-submit">
-                                            <button id="subscribe-button" class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn" type="button">
-                                                {% trans "Subscribe" %}<i class="icon icon-arrow1-top-left"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div id="subscribe-msg"></div>
-                                </form>
-                                <div class="tf-cur">
-                                    <div class="tf-currencies">
-                                        <select class="image-select center style-default type-currencies color-white">
-                                            <option data-thumbnail="{% static 'images/country/fr.svg' %}">EUR <span>€ | {% trans "France" %}</span></option>
-                                            <option data-thumbnail="{% static 'images/country/de.svg' %}">EUR <span>€ | {% trans "Germany" %}</span></option>
-                                            <option selected data-thumbnail="{% static 'images/country/us.svg' %}">USD <span>$ | {% trans "United States" %}</span></option>
-                                            <option data-thumbnail="{% static 'images/country/vn.svg' %}">VND <span>₫ | {% trans "Vietnam" %}</span></option>
-                                        </select>
-                                    </div>
-                                    <div class="tf-languages">
-                                        <select class="image-select center style-default type-languages color-white">
-                                            <option>{% trans "English" %}</option>
-                                            <option>{% trans "العربية" %}</option>
-                                            <option>{% trans "Simplified Chinese" %}</option>
-                                            <option>{% trans "Urdu" %}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="footer-section">
+            <h3>{% trans "روابط سريعة" %}</h3>
+            <div class="footer-links">
+                <a href="#" class="footer-link">{% trans "الرئيسية" %}</a>
+                <a href="#" class="footer-link">{% trans "الأقسام" %}</a>
+                <a href="#" class="footer-link">{% trans "البائعون المعتمدون" %}</a>
+                <a href="#" class="footer-link">{% trans "عن المنصة" %}</a>
+                <a href="#" class="footer-link">{% trans "الوظائف" %}</a>
+                <a href="#" class="footer-link">{% trans "اتصل بنا" %}</a>
+                <a href="#" class="footer-link">{% trans "كن بائعاً" %}</a>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-between align-items-center">
-                            <div class="footer-menu_item menu-btn-color">© 2024 Ecomus Store. {% trans "All Rights Reserved" %}</div>
-                            <div class="tf-payment">
-                                <img src="{% static 'images/payments/visa.png' %}" alt="">
-                                <img src="{% static 'images/payments/img-1.png' %}" alt="">
-                                <img src="{% static 'images/payments/img-2.png' %}" alt="">
-                                <img src="{% static 'images/payments/img-3.png' %}" alt="">
-                                <img src="{% static 'images/payments/img-4.png' %}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-section">
+            <h3>{% trans "اتصل بنا" %}</h3>
+            <p>info@trophy.sa</p>
+            <p>0530128000</p>
+            <p>{% trans "الرياض، المملكة العربية السعودية" %}</p>
         </div>
 
+        <div class="footer-section">
+            <h3>{% trans "تابعنا" %}</h3>
+            <p>{% trans "تابعنا على وسائل التواصل الاجتماعي للحصول على آخر الأخبار والعروض" %}</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>{% trans "جميع الحقوق محفوظة" %} &copy; 2025 - {% trans "منصة TROPHY" %}</p>
+            <div style="margin-top: 0.5rem;">
+                <a href="{% url 'policy' %}" class="footer-link">{% trans "سياسة الخصوصية" %}</a> |
+                <a href="{% url 'refund' %}" class="footer-link">{% trans "الشروط والأحكام" %}</a>
+            </div>
+        </div>
     </div>
 </footer>
-<!-- /Footer -->

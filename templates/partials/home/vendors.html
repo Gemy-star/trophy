@@ -1,0 +1,95 @@
+{% load static i18n %}
+
+
+<!-- قسم البائعين المعتمدين -->
+<section class="section vendors">
+    <div class="container">
+        <h2>{% trans "البائعون المعتمدون" %}</h2>
+
+        <div class="swiper vendors-swiper">
+            <div class="swiper-wrapper">
+
+                {% if vendors %}
+                    {% for vendor in vendors %}
+                        <div class="swiper-slide">
+                            <div class="vendor-card">
+                                <h3 class="vendor-name">{{ vendor.get_full_name }}</h3>
+                                <div class="vendor-rating">
+                                    <span>(4.5)</span>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="vendor-description">
+                                    {{ vendor.profile.description|default:_("لا يوجد وصف متاح.") }}
+                                </p>
+                                <div class="vendor-actions">
+                                    {% if vendor.profile.whatsapp_number %}
+                                        <a href="https://wa.me/{{ vendor.profile.whatsapp_number }}" class="btn btn-whatsapp btn-icon">
+                                            <i class="fab fa-whatsapp"></i>
+                                            {% trans "واتساب" %}
+                                        </a>
+                                    {% endif %}
+                                    <a href="mailto:{{ vendor.email }}" class="btn btn-email btn-icon">
+                                        <i class="far fa-envelope"></i>
+                                        {% trans "إيميل" %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for fallback in "123" %}
+                    <div class="swiper-slide">
+                        <div class="vendor-card">
+                            <h3 class="vendor-name">{% trans "مؤسسة الأعلام الوطنية" %}</h3>
+                            <div class="vendor-rating">
+                                <span>(4.5)</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="vendor-description">{% trans "متخصصون في الأعلام والهدايا الدعائية بجميع أنواعها" %}</p>
+                            <div class="vendor-actions">
+                                <a href="#" class="btn btn-whatsapp btn-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                    {% trans "واتساب" %}
+                                </a>
+                                <a href="#" class="btn btn-email btn-icon">
+                                    <i class="far fa-envelope"></i>
+                                    {% trans "إيميل" %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <!-- Swiper navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-secondary">{% trans "عرض المزيد من البائعين" %}</a>
+        </div>
+    </div>
+</section>
+
+<!-- Swiper JS -->
+<script>
+    const vendorSwiper = new Swiper('.vendors-swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: { slidesPerView: 1.2 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+        },
+    });
+</script>
+

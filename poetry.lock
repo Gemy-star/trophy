@@ -67,6 +67,21 @@ files = [
 django = "*"
 
 [[package]]
+name = "django-colorfield"
+version = "0.14.0"
+description = "color field for django models with a nice color-picker in the admin."
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "django_colorfield-0.14.0-py3-none-any.whl", hash = "sha256:f169c4e7ad8f336e51d4ea81f866346e7d4f336f3766e54e144cd16ea7d84a0e"},
+    {file = "django_colorfield-0.14.0.tar.gz", hash = "sha256:478dbd3975a88f2ea2a9afc325faaca05c54ebf04ec985ce130f6dea39dfb899"},
+]
+
+[package.dependencies]
+Pillow = ">=9.0.0"
+
+[[package]]
 name = "django-imagekit"
 version = "5.0.0"
 description = "Automated image processing for Django models."
@@ -291,4 +306,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<4"
-content-hash = "56ba9eee10f73f9f6a7e4eb586269e3b3f28a05ae2d546523561c75a8fe64da9"
+content-hash = "4fbf2f94985ec23457e80e70b9ce5ee1b4675ec97151aa64ad4ed581401b4502"

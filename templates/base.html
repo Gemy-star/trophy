@@ -1,65 +1,51 @@
 {% load static %}
-{% load i18n %}  {# Add this line to use translation tags #}
+{% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
     <meta charset="utf-8">
-    <title>{% block title %} Trophy - تروفى {% endblock title %}</title>
+    <title>{% block title %}{% trans "Trophy - تروفى" %}{% endblock title %}</title>
 
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- font -->
-    <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
-    <!-- Icons -->
-    <link rel="stylesheet" href="{% static 'fonts/font-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- logo and Touch Icons -->
+    <!-- Swiper 8.4.5 CSS -->
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" />
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'images/logo/logo.png' %}">
     <link rel="apple-touch-icon-precomposed" href="{% static 'images/logo/logo.png' %}">
+    <!-- Swiper 8.4.5 JS -->
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 
-    {% block css %} {% endblock css %}
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    {% block css %}{% endblock css %}
+    {% block js %}{% endblock js %}
+
 </head>
 <body class="preload-wrapper">
-    {% include 'partials/_preloader.html' %}
-    <div id="wrapper">
-        {% include 'partials/_announcement.html' %}
-        {% include 'partials/_header.html' %}
-        {% block content %}
-        {% endblock content %}
-        {% include 'partials/_footer.html' %}
+    {% include 'partials/_header.html' %}
 
-    </div>
+    {% block content %}{% endblock content %}
 
-    {% include 'partials/_go_to_top.html' %}
-    {% include 'partials/toolbar_bottom.html' %}
-    {% include 'partials/_mobile_menu.html' %}
-    {% include 'partials/_search.html' %}
-    {% include 'partials/login/_login.html' %}
-    {% include 'partials/login/_forget_password.html' %}
-    {% include 'partials/login/_register.html' %}
-    {% include 'partials/_shopping_cart.html' %}
-    <!-- Javascript -->
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/swiper-bundle.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap-select.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/lazysize.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/count-down.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/multiple-modal.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    {% include 'partials/_footer.html' %}
 
-    {% block js %} {% endblock js %}
+
 </body>
 </html>

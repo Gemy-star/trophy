@@ -1,11 +1,7 @@
 from modeltranslation.translator import translator, TranslationOptions
-from .models import HomeSlider , Announcement
+from .models import Category
 
-class HomeSliderTranslationOptions(TranslationOptions):
-    fields = ('heading', 'subheading', 'button_text')
-
-class AnnouncementTranslationOptions(TranslationOptions):
+class CategoryTranslationOptions(TranslationOptions):
     fields = ('title',)
 
-translator.register(HomeSlider, HomeSliderTranslationOptions)
-translator.register(Announcement, AnnouncementTranslationOptions)
+translator.register(Category, CategoryTranslationOptions)
