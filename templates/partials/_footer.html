@@ -11,11 +11,11 @@
             <h3>{% trans "روابط سريعة" %}</h3>
             <div class="footer-links">
                 <a href="{% url 'home' %}" class="footer-link">{% trans "الرئيسية" %}</a>
-                <a href="#" class="footer-link">{% trans "الأقسام" %}</a>
+                <a href="{% url 'categories' %}" class="footer-link">{% trans "الأقسام" %}</a>
                 <a href="#" class="footer-link">{% trans "البائعون المعتمدون" %}</a>
-                <a href="#" class="footer-link">{% trans "عن المنصة" %}</a>
-                <a href="#" class="footer-link">{% trans "اتصل بنا" %}</a>
-                <a href="#" class="footer-link">{% trans "كن بائعاً" %}</a>
+                <a href="{% url 'about' %}" class="footer-link">{% trans "عن المنصة" %}</a>
+                <a href="{% url 'contact' %}" class="footer-link">{% trans "اتصل بنا" %}</a>
+                <a href="{% url 'register_vendor' %}" class="footer-link">{% trans "كن بائعاً" %}</a>
             </div>
         </div>
 

@@ -1,0 +1,565 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %} {% trans 'إتصل بنا' %} {% endblock title %}
+
+{% block css %}
+<style>
+        /* تنسيقات إضافية خاصة بصفحة اتصل بنا */
+        .contact-hero {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h2 {
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .contact-info p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+        }
+
+        .contact-icon i {
+            color: var(--gold);
+            font-size: 1.3rem;
+        }
+
+        .contact-text h3 {
+            color: var(--navy-blue);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .contact-text p {
+            color: var(--dark-gray);
+            margin-bottom: 0;
+        }
+
+        .social-media-contact {
+            margin-top: 30px;
+        }
+
+        .social-media-contact h3 {
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        .twitter {
+            background-color: #1DA1F2;
+        }
+
+        .twitter:hover {
+            background-color: #0c85d0;
+        }
+
+        .facebook {
+            background-color: #4267B2;
+        }
+
+        .facebook:hover {
+            background-color: #365899;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .instagram:hover {
+            background: linear-gradient(45deg, #e6683c 0%, #dc2743 25%, #cc2366 50%, #bc1888 75%, #f09433 100%);
+        }
+
+        .snapchat {
+            background-color: #FFFC00;
+            color: #000;
+        }
+
+        .snapchat:hover {
+            background-color: #F5F500;
+        }
+
+        .tiktok {
+            background-color: #000;
+        }
+
+        .tiktok:hover {
+            background-color: #333;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h2 {
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--navy-blue);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .submit-btn:hover {
+            background-color: #141839;
+        }
+
+        .map-container {
+            margin-top: 60px;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px 0;
+            background-color: #f9f9f9;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--navy-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255, 215, 0, 0.05);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+    </style>
+
+{% endblock css %}
+
+
+{% block content %}
+    <!-- قسم الهيرو للاتصال -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>{% trans 'تواصل معنا' %}</h1>
+            <p>{% trans 'نحن هنا للإجابة على استفساراتك ومساعدتك في كل ما يتعلق بمنصة TROPHY. لا تتردد في التواصل معنا عبر أي من قنوات الاتصال المتاحة' %}</p>
+        </div>
+    </section>
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-container">
+            <!-- معلومات الاتصال -->
+            <div class="contact-info">
+                <h2>{% trans "معلومات الاتصال" %}</h2>
+                <p>{% trans "يمكنك التواصل معنا عبر أي من الوسائل التالية، وسنقوم بالرد عليك في أقرب وقت ممكن. فريق خدمة العملاء متاح للرد على استفساراتك من الأحد إلى الخميس من الساعة 9 صباحاً حتى 5 مساءً." %}</p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>{% trans "رقم الهاتف" %}</h3>
+                            <p>0530128000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>{% trans "البريد الإلكتروني" %}</h3>
+                            <p>info@trophy.sa</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>{% trans "واتساب" %}</h3>
+                            <p>0530128000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>{% trans "العنوان" %}</h3>
+                            <p>{% trans "الرياض، المملكة العربية السعودية" %}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-media-contact">
+                    <h3>{% trans "تابعنا على وسائل التواصل الاجتماعي" %}</h3>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/TrophyKSA" target="_blank" class="social-icon twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/TrophyKSA" target="_blank" class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/TrophyKSA" target="_blank" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://snapchat.com/add/TrophyKSA" target="_blank" class="social-icon snapchat">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </a>
+                        <a href="https://tiktok.com/@TrophyKSA" target="_blank" class="social-icon tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نموذج التواصل -->
+            <div class="contact-form">
+                <h2>{% trans "أرسل لنا رسالة" %}</h2>
+                              <form id="contactForm" method="post" action="">
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <label for="id_name">{% trans "الاسم الكامل" %}</label>
+                        <input type="text" name="name" id="id_name" class="form-control" required
+                               value="{{ form.name.value|default_if_none:'' }}">
+                        {{ form.name.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_email">{% trans "البريد الإلكتروني" %}</label>
+                        <input type="email" name="email" id="id_email" class="form-control" required
+                               value="{{ form.email.value|default_if_none:'' }}">
+                        {{ form.email.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_phone">{% trans "رقم الهاتف" %}</label>
+                        <input type="tel" name="phone" id="id_phone" class="form-control"
+                               value="{{ form.phone.value|default_if_none:'' }}">
+                        {{ form.phone.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_subject">{% trans "الموضوع" %}</label>
+                        <input type="text" name="subject" id="id_subject" class="form-control" required
+                               value="{{ form.subject.value|default_if_none:'' }}">
+                        {{ form.subject.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_message">{% trans "الرسالة" %}</label>
+                        <textarea name="message" id="id_message" class="form-control" required>{{ form.message.value|default_if_none:'' }}</textarea>
+                        {{ form.message.errors }}
+                    </div>
+
+                    <button type="submit" class="submit-btn">{% trans "إرسال الرسالة" %}</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- خريطة الموقع -->
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d463879.1971991044!2d46.54244071789254!3d24.725555344548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1649144553626!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+    {% load i18n %}
+<!-- قسم الأسئلة الشائعة -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>{% trans "الأسئلة الشائعة" %}</h2>
+            <p>{% trans "إليك بعض الأسئلة الشائعة التي قد تساعدك في الحصول على إجابات سريعة لاستفساراتك" %}</p>
+        </div>
+
+        <div class="faq-container">
+            <!-- سؤال 1 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    {% trans "كيف يمكنني التسجيل كبائع في منصة TROPHY؟" %}
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>{% trans "يمكنك التسجيل كبائع في منصة TROPHY من خلال النقر على زر \"كن بائعاً\" في أعلى الصفحة، ثم اتباع الخطوات البسيطة لإنشاء حساب بائع وإضافة معلومات متجرك والمنتجات التي ترغب في عرضها." %}</p>
+                </div>
+            </div>
+
+            <!-- سؤال 2 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    {% trans "ما هي طرق الدفع المتاحة في المنصة؟" %}
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>{% trans "تتيح منصة TROPHY التواصل المباشر بين المشتري والبائع، ويتم الاتفاق على طريقة الدفع بينهما. يمكن للبائعين قبول الدفع عبر التحويل البنكي، أو بطاقات الائتمان، أو الدفع عند الاستلام، حسب ما يتفق عليه الطرفان." %}</p>
+                </div>
+            </div>
+
+            <!-- سؤال 3 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    {% trans "كيف يمكنني التواصل مع البائعين؟" %}
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>{% trans "يمكنك التواصل مع البائعين مباشرة من خلال الضغط على زر \"تواصل مع البائع\" الموجود في صفحة المنتج، والذي سيوجهك إلى التواصل عبر الواتساب. كما يمكنك أيضاً التواصل عبر البريد الإلكتروني الخاص بالبائع المعروض في صفحة المنتج أو صفحة البائع." %}</p>
+                </div>
+            </div>
+
+            <!-- سؤال 4 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    {% trans "هل يمكنني طلب منتجات مخصصة؟" %}
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>{% trans "نعم، يمكنك طلب منتجات مخصصة من البائعين في منصة TROPHY. يمكنك التواصل مباشرة مع البائع وتوضيح متطلباتك الخاصة، وسيقوم البائع بتقديم عرض سعر مناسب لطلبك المخصص." %}</p>
+                </div>
+            </div>
+
+            <!-- سؤال 5 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    {% trans "ما هي سياسة الإرجاع والاستبدال؟" %}
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>{% trans "تختلف سياسة الإرجاع والاستبدال من بائع لآخر. يرجى التواصل مع البائع مباشرة للاستفسار عن سياسة الإرجاع والاستبدال الخاصة به قبل إتمام عملية الشراء." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+
+{% block js %}
+  <script>
+        // وظيفة لتبديل عرض/إخفاء إجابات الأسئلة الشائعة
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const isActive = element.classList.contains('active');
+
+            // إغلاق جميع الإجابات المفتوحة
+            const allQuestions = document.querySelectorAll('.faq-question');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+
+            allQuestions.forEach(question => {
+                question.classList.remove('active');
+            });
+
+            allAnswers.forEach(answer => {
+                answer.classList.remove('active');
+            });
+
+            // فتح الإجابة المحددة إذا كانت مغلقة
+            if (!isActive) {
+                element.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
+
+        // معالجة إرسال نموذج الاتصال
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // هنا يمكن إضافة كود للتحقق من صحة البيانات وإرسالها إلى الخادم
+
+            alert('تم إرسال رسالتك بنجاح! سنقوم بالرد عليك في أقرب وقت ممكن.');
+            this.reset();
+        });
+    </script>
+
+{% endblock js %}

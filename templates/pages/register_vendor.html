@@ -1,0 +1,408 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %} {% trans 'كن بائعا' %} {% endblock title %}
+{% block css %}
+     <style>
+        /* تنسيقات إضافية خاصة بصفحة كن بائعاً */
+        .seller-form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .seller-form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .seller-form-header h1 {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+        }
+
+        .seller-form-header p {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+
+        .form-col {
+            flex: 1;
+            padding: 0 10px;
+            min-width: 250px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: left 1rem center;
+            background-size: 1em;
+        }
+
+        .form-group .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .form-group .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            min-width: 150px;
+        }
+
+        .form-group .checkbox-item input {
+            width: auto;
+            margin-left: 8px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            background-color: #141839;
+        }
+
+        .form-note {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        .seller-benefits {
+            margin-top: 50px;
+            padding: 30px 0;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .benefits-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .benefits-header h2 {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+        }
+
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .benefit-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(20, 24, 57, 0.1);
+            border-radius: 50%;
+            color: var(--navy-blue);
+            font-size: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .form-col {
+                flex: 100%;
+            }
+
+            .benefit-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+ {% endblock css %}
+{% block content %}
+<!-- محتوى الصفحة -->
+<div class="container">
+    <div class="seller-form-container">
+        <div class="seller-form-header">
+            <h1>{% trans "انضم إلى منصة TROPHY كبائع معتمد" %}</h1>
+            <p>{% trans "املأ النموذج التالي للانضمام إلى منصة TROPHY كبائع معتمد وابدأ في عرض منتجاتك لآلاف العملاء المحتملين." %}</p>
+        </div>
+<form id="become-seller-form" method="POST">
+    {% csrf_token %}
+
+    <div class="form-row">
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_company_name">{% trans "اسم الشركة / المؤسسة" %} <span style="color: red;">*</span></label>
+                {{ form.company_name }}
+            </div>
+        </div>
+
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_commercial_register">{% trans "رقم السجل التجاري" %} <span style="color: red;">*</span></label>
+                {{ form.commercial_register }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_username">{% trans "اسم المستخدم" %} <span style="color: red;">*</span></label>
+                {{ form.username }}
+            </div>
+        </div>
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_password">{% trans "كلمة المرور" %} <span style="color: red;">*</span></label>
+                {{ form.password }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_contact_name">{% trans "اسم المسؤول" %} <span style="color: red;">*</span></label>
+                {{ form.contact_name }}
+            </div>
+        </div>
+
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_contact_position">{% trans "المنصب" %} <span style="color: red;">*</span></label>
+                {{ form.contact_position }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_contact_email">{% trans "البريد الإلكتروني" %} <span style="color: red;">*</span></label>
+                {{ form.contact_email }}
+            </div>
+        </div>
+
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_contact_phone">{% trans "رقم الجوال" %} <span style="color: red;">*</span></label>
+                {{ form.contact_phone }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_whatsapp">{% trans "رقم الواتساب للتواصل" %} <span style="color: red;">*</span></label>
+                {{ form.whatsapp }}
+            </div>
+        </div>
+
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_website">{% trans "الموقع الإلكتروني (اختياري)" %}</label>
+                {{ form.website }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="id_address">{% trans "العنوان" %} <span style="color: red;">*</span></label>
+        {{ form.address }}
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <div class="form-group">
+                <label for="id_city">{% trans "المدينة" %} <span style="color: red;">*</span></label>
+                {{ form.city }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>{% trans "فئات المنتجات" %} <span style="color: red;">*</span></label>
+        <div class="checkbox-group">
+            {% for category in form.categories %}
+                <div class="checkbox-item">
+                    {{ category.tag }}
+                    <label for="{{ category.id_for_label }}">{{ category.choice_label }}</label>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="id_about_company">{% trans "نبذة عن الشركة / المؤسسة" %} <span style="color: red;">*</span></label>
+        {{ form.about_company }}
+    </div>
+
+    <div class="form-group" style="display: flex; align-items: flex-start;">
+        <input type="checkbox" id="id_accepted_terms" name="accepted_terms" style="width: auto; margin-left: 10px; margin-top: 5px;" required>
+        <label for="id_accepted_terms" style="margin-bottom: 0;">
+            {% trans "أوافق على" %}
+            <a href="#" style="color: var(--navy-blue);">{% trans "الشروط والأحكام" %}</a>
+            {% trans "و" %}
+            <a href="#" style="color: var(--navy-blue);">{% trans "سياسة الخصوصية" %}</a>
+            {% trans "الخاصة بمنصة TROPHY" %}
+        </label>
+    </div>
+
+    <hr>
+
+    <button type="submit" class="form-submit">{% trans "تقديم الطلب" %}</button>
+
+    <div class="form-note">
+        <p>{% trans "سيتم مراجعة طلبك والرد عليك خلال 48 ساعة عمل." %}</p>
+    </div>
+</form>
+
+    </div>
+
+<div class="seller-benefits">
+    <div class="container">
+        <div class="benefits-header">
+            <h2>{% trans "مميزات الانضمام كبائع معتمد" %}</h2>
+            <p>{% trans "استفد من مجموعة من المميزات الحصرية عند الانضمام إلى منصة TROPHY كبائع معتمد" %}</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>{% trans "وصول لآلاف العملاء" %}</h3>
+                <p>{% trans "عرض منتجاتك لآلاف العملاء المحتملين في جميع أنحاء المملكة العربية السعودية." %}</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>{% trans "تواصل مباشر" %}</h3>
+                <p>{% trans "تواصل مباشر مع العملاء عبر الواتساب والبريد الإلكتروني لتسهيل عملية البيع." %}</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>{% trans "إحصائيات مفصلة" %}</h3>
+                <p>{% trans "الوصول إلى إحصائيات مفصلة حول أداء منتجاتك وتفاعل العملاء معها." %}</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>{% trans "لوحة تحكم سهلة" %}</h3>
+                <p>{% trans "لوحة تحكم سهلة الاستخدام لإدارة منتجاتك وطلباتك وحسابك بكل سهولة." %}</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>{% trans "تسويق مجاني" %}</h3>
+                <p>{% trans "الاستفادة من حملات التسويق المجانية التي تقوم بها منصة TROPHY لجذب المزيد من العملاء." %}</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>{% trans "دعم فني متكامل" %}</h3>
+                <p>{% trans "دعم فني متكامل من فريق TROPHY لمساعدتك في حل أي مشكلة قد تواجهك." %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock content %}

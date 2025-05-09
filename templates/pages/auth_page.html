@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %}
+    {% trans 'الأقسام' %}
+{% endblock title %}
+
+{% block css %}
+  <style>
+        /* تنسيقات إضافية خاصة بصفحة تسجيل الدخول */
+        .auth-container {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            color: var(--navy-blue);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: #141839;
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        .form-footer a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-footer a:hover {
+            color: var(--gold);
+        }
+
+        .social-login {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .social-login p {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .social-login p:before, .social-login p:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 35%;
+            height: 1px;
+            background-color: var(--medium-gray);
+        }
+
+        .social-login p:before {
+            right: 0;
+        }
+
+        .social-login p:after {
+            left: 0;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-button.google:hover {
+            background-color: #DB4437;
+            color: white;
+        }
+
+        .social-button.facebook:hover {
+            background-color: #4267B2;
+            color: white;
+        }
+
+        .social-button.twitter:hover {
+            background-color: #1DA1F2;
+            color: white;
+        }
+    </style>
+{% endblock css %}
+{% block content %}
+<!-- محتوى الصفحة -->
+<div class="container">
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <div class="auth-tab active" data-tab="login">{% trans "تسجيل الدخول" %}</div>
+            <div class="auth-tab" data-tab="register">{% trans "إنشاء حساب" %}</div>
+        </div>
+
+        <!-- نموذج تسجيل الدخول -->
+        <form id="login-form" class="auth-form active" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="login-email">{% trans "البريد الإلكتروني" %}</label>
+                <input type="email" id="login-email" name="email" placeholder="{% trans 'أدخل بريدك الإلكتروني' %}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="login-password">{% trans "كلمة المرور" %}</label>
+                <input type="password" id="login-password" name="password" placeholder="{% trans 'أدخل كلمة المرور' %}" required>
+            </div>
+
+            <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                <label style="margin-bottom: 0;">
+                    <input type="checkbox" style="width: auto; margin-left: 5px;"> {% trans "تذكرني" %}
+                </label>
+                <a href="#" style="color: var(--navy-blue); text-decoration: none; font-size: 0.9rem;">{% trans "نسيت كلمة المرور؟" %}</a>
+            </div>
+
+            <button type="submit" class="form-submit">{% trans "تسجيل الدخول" %}</button>
+
+            <div class="social-login">
+                <p>{% trans "أو تسجيل الدخول باستخدام" %}</p>
+                <div class="social-buttons">
+                    <a href="#" class="social-button google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-button twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="form-footer">
+                {% trans "ليس لديك حساب؟" %} <a href="#" class="switch-tab" data-tab="register">{% trans "إنشاء حساب جديد" %}</a>
+            </div>
+        </form>
+
+        <!-- نموذج إنشاء حساب -->
+        <form id="register-form" class="auth-form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="register-name">{% trans "الاسم الكامل" %}</label>
+                <input type="text" id="register-name" name="full_name" placeholder="{% trans 'أدخل اسمك الكامل' %}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-email">{% trans "البريد الإلكتروني" %}</label>
+                <input type="email" id="register-email" name="email" placeholder="{% trans 'أدخل بريدك الإلكتروني' %}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-phone">{% trans "رقم الجوال" %}</label>
+                <input type="tel" id="register-phone" name="phone" placeholder="{% trans 'أدخل رقم الجوال' %}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-password">{% trans "كلمة المرور" %}</label>
+                <input type="password" id="register-password" name="password1" placeholder="{% trans 'أدخل كلمة المرور' %}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-confirm-password">{% trans "تأكيد كلمة المرور" %}</label>
+                <input type="password" id="register-confirm-password" name="password2" placeholder="{% trans 'أعد إدخال كلمة المرور' %}" required>
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: flex-start;">
+                <input type="checkbox" id="terms" style="width: auto; margin-left: 10px; margin-top: 5px;" required>
+                <label for="terms" style="margin-bottom: 0;">{% trans "أوافق على" %} <a href="#" style="color: var(--navy-blue);">{% trans "الشروط والأحكام" %}</a> {% trans "و" %} <a href="#" style="color: var(--navy-blue);">{% trans "سياسة الخصوصية" %}</a></label>
+            </div>
+
+            <button type="submit" class="form-submit">{% trans "إنشاء حساب" %}</button>
+
+            <div class="form-footer">
+                {% trans "لديك حساب بالفعل؟" %} <a href="#" class="switch-tab" data-tab="login">{% trans "تسجيل الدخول" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+    <script>
+        // سكريبت خاص بصفحة تسجيل الدخول
+        document.addEventListener('DOMContentLoaded', function() {
+            const authTabs = document.querySelectorAll('.auth-tab');
+            const authForms = document.querySelectorAll('.auth-form');
+            const switchTabs = document.querySelectorAll('.switch-tab');
+
+            // تبديل التبويبات
+            function switchTab(tabId) {
+                // إزالة الفئة النشطة من جميع التبويبات والنماذج
+                authTabs.forEach(tab => tab.classList.remove('active'));
+                authForms.forEach(form => form.classList.remove('active'));
+
+                // إضافة الفئة النشطة للتبويب والنموذج المحدد
+                document.querySelector(`.auth-tab[data-tab="${tabId}"]`).classList.add('active');
+                document.querySelector(`#${tabId}-form`).classList.add('active');
+            }
+
+            // تفعيل التبويبات
+            authTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // تفعيل روابط التبديل
+            switchTabs.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+        });
+    </script>
+
+{% endblock js %}

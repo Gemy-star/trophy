@@ -1,0 +1,475 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% block title  %}
+    {% trans 'عن المنصة' %}
+{% endblock title %}
+
+{% block css  %}
+  <style>
+        /* تنسيقات إضافية خاصة بصفحة عن المنصة */
+        .about-hero {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .about-section {
+            padding: 60px 0;
+        }
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-content h2 {
+            color: var(--navy-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .about-content p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mission-vision {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+
+        .mission-vision-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .mission-box, .vision-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .mission-box h3, .vision-box h3 {
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .mission-box h3 i, .vision-box h3 i {
+            margin-left: 10px;
+            color: var(--gold);
+        }
+
+        .mission-box p, .vision-box p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        .values-section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .value-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(20, 24, 57, 0.1);
+            border-radius: 50%;
+            color: var(--navy-blue);
+            font-size: 1.8rem;
+        }
+
+        .value-card h3 {
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .value-card p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .team-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            color: var(--navy-blue);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .member-info p {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .member-bio {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .member-social a {
+            color: var(--navy-blue);
+            transition: color 0.3s ease;
+        }
+
+        .member-social a:hover {
+            color: var(--gold);
+        }
+
+        .stats-section {
+            padding: 60px 0;
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            color: var(--navy-blue);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            color: var(--dark-gray);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .about-container, .mission-vision-container {
+                flex-direction: column;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .stat-item {
+                min-width: 150px;
+            }
+        }
+    </style>
+{% endblock css %}
+
+
+{% block content  %}
+
+      <section class="about-hero">
+        <div class="container">
+            <h1>{% trans 'عن منصة TROPHY' %}</h1>
+            <p>{% trans 'المنصة الأولى في المملكة العربية السعودية المتخصصة في الهدايا الدعائية، نربط بين البائعين والمشترين بطريقة سهلة وفعالة' %}</p>
+        </div>
+    </section>
+{% load i18n %}
+<section class="about-section">
+    <div class="container">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>{% trans "من نحن" %}</h2>
+                <p>{% trans "منصة TROPHY هي المنصة الأولى في المملكة العربية السعودية المتخصصة في الهدايا الدعائية، تأسست عام 2023 بهدف توفير منصة متكاملة تجمع بين البائعين المعتمدين والمشترين في مجال الهدايا الدعائية والتسويقية." %}</p>
+
+                <p>{% trans "نسعى في TROPHY إلى تسهيل عملية البحث والشراء للعملاء من خلال توفير منصة موحدة تضم مجموعة واسعة من البائعين المعتمدين والمنتجات المتنوعة، مما يوفر الوقت والجهد على العملاء في البحث عن منتجات الهدايا الدعائية." %}</p>
+
+                <p>{% trans "كما نهدف إلى دعم البائعين المحليين وتوفير منصة تسويقية لهم للوصول إلى شريحة أكبر من العملاء المحتملين، وتسهيل عملية التواصل المباشر بين البائعين والمشترين." %}</p>
+            </div>
+
+            <div class="about-image">
+                <img src="{% static 'images/logo/about.jpg' %}" alt="{% trans 'منصة TROPHY' %}">
+            </div>
+        </div>
+    </div>
+</section>
+{% load i18n %}
+<!-- قسم الرؤية والرسالة -->
+<section class="mission-vision">
+    <div class="container">
+        <div class="mission-vision-container">
+            <div class="mission-box">
+                <h3><i class="fas fa-bullseye"></i> {% trans "رسالتنا" %}</h3>
+                <p>{% trans "توفير منصة متكاملة وموثوقة تجمع بين البائعين المعتمدين والمشترين في مجال الهدايا الدعائية، وتسهيل عملية البحث والشراء للعملاء، وتوفير فرص تسويقية للبائعين المحليين للوصول إلى شريحة أكبر من العملاء." %}</p>
+            </div>
+
+            <div class="vision-box">
+                <h3><i class="fas fa-eye"></i> {% trans "رؤيتنا" %}</h3>
+                <p>{% trans "أن نكون المنصة الرائدة في مجال الهدايا الدعائية في المملكة العربية السعودية والشرق الأوسط، وأن نساهم في تطوير وتنمية قطاع الهدايا الدعائية من خلال توفير حلول مبتكرة ومتكاملة تلبي احتياجات العملاء والبائعين." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- قسم القيم -->
+<section class="values-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>{% trans "قيمنا" %}</h2>
+            <p>{% trans "نؤمن في TROPHY بمجموعة من القيم التي توجه عملنا وتحدد علاقتنا مع عملائنا وشركائنا" %}</p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>{% trans "الجودة" %}</h3>
+                <p>{% trans "نلتزم بتقديم منتجات وخدمات ذات جودة عالية تلبي توقعات عملائنا وتتجاوزها." %}</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>{% trans "الثقة" %}</h3>
+                <p>{% trans "نبني علاقات قائمة على الثقة والشفافية مع عملائنا وشركائنا، ونلتزم بالوفاء بوعودنا." %}</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>{% trans "الابتكار" %}</h3>
+                <p>{% trans "نسعى دائماً للتطوير والابتكار في منتجاتنا وخدماتنا لتلبية احتياجات السوق المتغيرة." %}</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>{% trans "التعاون" %}</h3>
+                <p>{% trans "نؤمن بأهمية التعاون والعمل الجماعي لتحقيق النجاح والتميز في كل ما نقوم به." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- قسم الإحصائيات -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">+500</div>
+                <div class="stat-label">{% trans "بائع معتمد" %}</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-number">+5000</div>
+                <div class="stat-label">{% trans "منتج متنوع" %}</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-number">+10000</div>
+                <div class="stat-label">{% trans "عميل سعيد" %}</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-number">+20</div>
+                <div class="stat-label">{% trans "فئة منتجات" %}</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- قسم دعوة للعمل -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>{% trans "انضم إلينا اليوم" %}</h2>
+            <p>{% trans "سواء كنت بائعاً ترغب في عرض منتجاتك أو مشترياً تبحث عن هدايا دعائية مميزة، منصة TROPHY هي الخيار الأمثل لك. انضم إلينا اليوم واستفد من مميزات المنصة المتعددة." %}</p>
+
+            <div class="cta-buttons">
+                <a href="{% url 'register_vendor' %}" class="btn btn-primary">
+                    <i class="fas fa-store"></i>
+                    {% trans "كن بائعاً" %}
+                </a>
+                <a href="{% url 'categories' %}" class="btn btn-secondary">
+                    <i class="fas fa-shopping-bag"></i>
+                    {% trans "تصفح المنتجات" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+

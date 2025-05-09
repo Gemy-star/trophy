@@ -1,4 +1,4 @@
-/* 
+/*
 * TROPHY منصة - نظام الألوان والتنسيق
 * تاريخ الإنشاء: 21 أبريل 2025
 */
@@ -8,20 +8,20 @@
   /* الألوان الرئيسية */
   --primary-color: #1A1A3A; /* أزرق داكن (كحلي) */
   --secondary-color: #FFD700; /* أصفر ذهبي */
-  
+
   /* ألوان مكملة */
   --green-color: #4CAF50; /* أخضر فاتح - واتساب */
   --purple-color: #4B0082; /* أرجواني داكن - إيميل */
   --pink-color: #FFC0CB; /* وردي فاتح - خلفيات */
   --light-blue-color: #ADD8E6; /* أزرق فاتح - خلفيات */
-  
+
   /* ألوان محايدة */
   --white-color: #FFFFFF;
   --light-gray-color: #F5F5F5;
   --gray-color: #CCCCCC;
   --dark-gray-color: #333333;
   --black-color: #000000;
-  
+
   /* المسافات */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -29,13 +29,13 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-xxl: 3rem;
-  
+
   /* الحواف */
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --border-radius-xl: 20px;
-  
+
   /* الظلال */
   --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -53,7 +53,7 @@ html {
 }
 
 body {
-  font-family: 'Cairo', 'Tajawal', sans-serif;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
   direction: rtl;
   text-align: right;
   color: var(--dark-gray-color);
@@ -259,9 +259,6 @@ p {
   align-items: center;
   gap: var(--spacing-xs);
 }
-  .content {
-    padding: 0 5rem;
-  }
 /* ===== قسم الترويج الرئيسي (Hero Section) ===== */
 .hero {
   background-color: var(--primary-color);
@@ -383,7 +380,6 @@ p {
   border-radius: 50%;
   cursor: pointer;
   z-index: 9999;
-  box-shadow: 0 2px 6px var(--secondary-color);
 }
 
 
@@ -394,7 +390,7 @@ p {
   left: 30px;      /* Distance from right */
   width: 40px;
   height: 40px;
-  background-color: var(--primary-color);
+  background-color: var(--green-color);
   color: white;
   font-size: 24px;
   text-align: center;
@@ -402,7 +398,6 @@ p {
   border-radius: 50%;
   cursor: pointer;
   z-index: 9999;
-  box-shadow: 0 2px 6px var(--secondary-color);
 }
 
 
@@ -489,7 +484,7 @@ p {
     margin-top: var(--spacing-md);
     justify-content: center;
   }
-  
+
   .search-bar {
     margin: 0;
     flex-grow: 1;
@@ -500,57 +495,52 @@ p {
   html {
     font-size: 14px;
   }
-  
+
   .nav-menu {
     flex-wrap: wrap;
     gap: var(--spacing-md);
   }
-  
+
   .categories-grid,
   .vendors-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  
+
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .footer-links {
     align-items: center;
   }
 }
 
 @media (max-width: 576px) {
-  .content {
-  padding: 0 2.7rem;
-  margin: 0 auto;
-
-}
   .user-actions {
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--spacing-sm);
   }
-  
+
   .search-bar {
     order: 3;
     width: 100%;
     margin-top: var(--spacing-sm);
   }
-  
+
   .hero h1 {
     font-size: 2rem;
   }
-  
+
   .hero p {
     font-size: 1rem;
   }
-  
+
   .categories-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .vendor-actions {
     flex-direction: column;
   }

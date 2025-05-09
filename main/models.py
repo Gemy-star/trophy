@@ -89,6 +89,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Scope(models.IntegerChoices):
         ADMIN = 0
         CUSTOMER = 1
+        MERCHANT = 2
 
 
     email = models.EmailField(verbose_name="email address", max_length=255, db_index=True, unique=True)
@@ -112,29 +113,66 @@ class User(AbstractBaseUser, PermissionsMixin):
         return f"{self.first_name} {self.last_name}"
 
     def is_customer(self):
-        """Returns True if the user is a vendor (MERCHANT scope)."""
+        """Returns True if the user is a Customer (Customer scope)."""
         return self.scope_level == User.Scope.CUSTOMER
+    def is_merchant(self):
+        """Returns True if the user is a vendor (MERCHANT scope)."""
+        return self.scope_level == User.Scope.MERCHANT
 
-
-
-class VendorProfile(models.Model):
-    user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE,
-        related_name="vendor_profile",
-        limit_choices_to={'scope_level': User.Scope.CUSTOMER}
-    )
-    vendor_name = models.CharField(max_length=255, verbose_name=_("Vendor Name"))
-    description = models.TextField(verbose_name=_("Vendor Description"))
-    whatsapp_number = models.CharField(max_length=20, verbose_name=_("WhatsApp Number"))
-    rating = models.DecimalField(max_digits=2, decimal_places=1, default=0.0, verbose_name=_("Rating"))
-
-    def __str__(self):
-        return self.vendor_name
+CITY_CHOICES = [
+    ('riyadh', 'الرياض'),
+    ('jeddah', 'جدة'),
+    ('dammam', 'الدمام'),
+    ('makkah', 'مكة المكرمة'),
+    ('madinah', 'المدينة المنورة'),
+    ('khobar', 'الخبر'),
+    ('tabuk', 'تبوك'),
+    ('abha', 'أبها'),
+    ('other', 'أخرى'),
+]
 
 class Category(models.Model):
     title = models.CharField(max_length=100, verbose_name=_("Title"))
     is_active = models.BooleanField(default=True, verbose_name=_("Is Active"))
     background_color = ColorField(default="#FFFFFF", verbose_name=_("Background Color"))
+    image = models.ImageField(upload_to='categories/', verbose_name=_("category Image"),null=True, blank=True)
+    image_resized = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(1920, 600)],
+        format='JPEG',
+        options={'quality': 85}
+    )
     def __str__(self):
         return self.title
+
+
+class VendorProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    company_name = models.CharField(max_length=255)
+    commercial_register = models.CharField(max_length=100)
+    contact_name = models.CharField(max_length=100)
+    contact_position = models.CharField(max_length=100)
+    contact_email = models.EmailField()
+    contact_phone = models.CharField(max_length=20)
+    whatsapp = models.CharField(max_length=20)
+    website = models.URLField(blank=True, null=True)
+    address = models.CharField(max_length=255)
+    city = models.CharField(max_length=50, choices=CITY_CHOICES)
+    categories = models.ManyToManyField(Category)
+    about_company = models.TextField()
+    accepted_terms = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.company_name
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100, verbose_name=_("الاسم الكامل"))
+    email = models.EmailField(verbose_name=_("البريد الإلكتروني"))
+    phone = models.CharField(max_length=20, blank=True, verbose_name=_("رقم الهاتف"))
+    subject = models.CharField(max_length=150, verbose_name=_("الموضوع"))
+    message = models.TextField(verbose_name=_("الرسالة"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("تاريخ الإرسال"))
+
+    def __str__(self):
+        return f"{self.name} - {self.subject}"

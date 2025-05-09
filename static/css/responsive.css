@@ -30,11 +30,11 @@
   .menu-toggle {
     display: block;
   }
-  
+
   .nav-menu-hidden {
     display: none;
   }
-  
+
   .nav-menu-active {
     display: flex;
     flex-direction: column;
@@ -44,7 +44,7 @@
     background-color: var(--primary-color);
     animation: slideDown 0.3s ease;
   }
-  
+
   @keyframes slideDown {
     from {
       opacity: 0;
@@ -55,7 +55,7 @@
       transform: translateY(0);
     }
   }
-  
+
   .search-bar {
     order: 2;
     margin-left: var(--spacing-md);
@@ -66,23 +66,23 @@
   .hero h1 {
     font-size: 2.2rem;
   }
-  
+
   .vendor-card {
     text-align: center;
   }
-  
+
   .vendor-actions {
     justify-content: center;
   }
-  
+
   .footer-section {
     text-align: center;
   }
-  
+
   .footer-links {
     align-items: center;
   }
-  
+
   .social-links {
     justify-content: center;
   }
@@ -93,40 +93,40 @@
     flex-direction: column;
     align-items: center;
   }
-  
+
   .logo {
     margin-bottom: var(--spacing-sm);
   }
-  
+
   .search-bar {
     width: 100%;
     margin: var(--spacing-sm) 0;
     order: 3;
   }
-  
+
   .user-actions {
     width: 100%;
     justify-content: space-around;
     margin-top: var(--spacing-sm);
   }
-  
+
   .hero {
     padding: var(--spacing-xl) 0;
   }
-  
+
   .hero h1 {
     font-size: 1.8rem;
   }
-  
+
   .section {
     padding: var(--spacing-xl) 0;
   }
-  
-  .categories-grid, 
+
+  .categories-grid,
   .vendors-grid {
     gap: var(--spacing-md);
   }
-  
+
   .category-card {
     min-height: 150px;
   }
