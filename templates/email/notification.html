@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ subject }}</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f6f8fa;
+      margin: 0;
+      padding: 20px;
+      direction: rtl;
+      text-align: right;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .header {
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    .footer {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      margin-top: 20px;
+      background-color: #1a73e8;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header">
+      <h2>{{ subject }}</h2>
+    </div>
+
+    <p>مرحبًا {{ user_name }}،</p>
+
+    <p>{{ message_body }}</p>
+
+    {% if button_url and button_text %}
+    <p>
+      <a href="{{ button_url }}" class="button">{{ button_text }}</a>
+    </p>
+    {% endif %}
+
+    <p>مع أطيب التحيات،<br><strong>فريق TROPHY</strong></p>
+
+    <div class="footer">
+      &copy; {{ year }} منصة TROPHY. جميع الحقوق محفوظة.
+    </div>
+  </div>
+</body>
+</html>

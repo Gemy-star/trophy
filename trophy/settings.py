@@ -45,9 +45,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,3 +143,18 @@ MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 
 AUTH_USER_MODEL = 'main.User'
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = 'support@mnory.com'
+
+SITE_DOMAIN = "https://trophy.pythonanywhere.com/"
+TROPHY_EMAIL_BUTTON_URL_NAME = "auth_view"  # This is the name of your login URL pattern
+TROPHY_EMAIL_BUTTON_TEXT = "تسجيل الدخول إلى حسابك"
