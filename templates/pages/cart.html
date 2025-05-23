@@ -1,0 +1,384 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %} {% trans 'البائعون المعتمدون ' %} {% endblock title %}
+
+{% block css %}
+ <style>
+        /* أنماط خاصة بصفحة سلة التسوق */
+        .cart-container {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cart-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .cart-title i {
+            color: var(--secondary-color);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .cart-empty i {
+            font-size: 4rem;
+            color: var(--medium-gray);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cart-empty p {
+            font-size: 1.25rem;
+            color: var(--dark-gray);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cart-items {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--medium-gray);
+            position: relative;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            margin-left: var(--spacing-md);
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cart-item-seller {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cart-item-options {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin: 0 var(--spacing-xl);
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            border: 1px solid var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius-sm);
+            margin: 0 var(--spacing-xs);
+        }
+
+        .cart-item-total {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 0 var(--spacing-md);
+            min-width: 100px;
+            text-align: left;
+        }
+
+        .cart-item-remove {
+            color: #e74c3c;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-right: var(--spacing-md);
+        }
+
+        .cart-summary {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .summary-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .summary-row.total {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            border-top: 1px solid var(--medium-gray);
+            padding-top: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .continue-shopping {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .checkout-btn {
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-size: 1.1rem;
+        }
+    </style>
+{% endblock css %}
+
+
+{% block content %}
+<div class="container cart-container">
+    <div class="cart-header">
+        <h1 class="cart-title">
+            <i class="fas fa-shopping-cart"></i>
+            {% trans "سلة التسوق" %}
+        </h1>
+        <span>{{ item_count }}</span>
+    </div>
+</div>
+<div class="cart-items">
+    {% if cart_items %}
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <div class="cart-item-image">
+                <img src="{{ item.image_url }}" alt="{{ item.title }}">
+            </div>
+            <div class="cart-item-details">
+                <h3 class="cart-item-title">{{ item.title }}</h3>
+                <p class="cart-item-seller">{% trans "Seller" %}: {{ item.seller }}</p>
+                <p class="cart-item-options">{{ item.options }}</p>
+                <p class="cart-item-price">{{ item.price }} ﷼ / {% trans "item" %}</p>
+            </div>
+            <div class="cart-item-quantity">
+                <button class="quantity-btn">-</button>
+                <input type="number" class="quantity-input" value="{{ item.quantity }}" min="1" max="100">
+                <button class="quantity-btn">+</button>
+            </div>
+            <div class="cart-item-total">{{ item.total_price }} ﷼</div>
+            <div class="cart-item-remove">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+<div class="cart-empty">
+    <i class="fas fa-shopping-cart"></i>
+    <h2>{% trans "سلة التسوق فارغة" %}</h2>
+    <p>{% trans "لم تقم بإضافة أي منتجات إلى السلة بعد." %}</p>
+    <a href="{% url 'categories' %}" class="btn btn-secondary">
+        {% trans "تصفح المنتجات" %}
+    </a>
+</div>
+    {% endif %}
+</div>
+
+{% if cart_items %}
+<div class="cart-summary">
+    <h2 class="summary-title">{% trans "Order Summary" %}</h2>
+    <div class="summary-row">
+        <span>{% trans "Subtotal" %}</span>
+        <span>{{ total }} ﷼</span>
+    </div>
+    <div class="summary-row">
+        <span>{% trans "VAT (15%)" %}</span>
+        <span>{{ vat|floatformat:2 }} ﷼</span>
+    </div>
+    <div class="summary-row">
+        <span>{% trans "Shipping" %}</span>
+        <span>{{ shipping }} ﷼</span>
+    </div>
+    <div class="summary-row total">
+        <span>{% trans "Total" %}</span>
+        <span>{{ grand_total|floatformat:2 }} ﷼</span>
+    </div>
+</div>
+
+<div class="cart-actions">
+    <a href="{% url 'home' %}" class="continue-shopping">
+        <i class="fas fa-arrow-right"></i>
+        {% trans "متابعة التسوق" %}
+    </a>
+    <a href="{% url 'checkout' %}" class="btn btn-secondary checkout-btn">
+        <i class="fas fa-credit-card"></i>
+        {% trans "الدفع" %}
+    </a>
+</div>
+{% endif %}
+
+{% endblock content %}
+
+
+{% block js %}
+ <!-- JavaScript -->
+    <script>
+        // وظائف سلة التسوق
+        document.addEventListener('DOMContentLoaded', function() {
+            // أزرار زيادة ونقصان الكمية
+            const minusBtns = document.querySelectorAll('.quantity-btn:first-child');
+            const plusBtns = document.querySelectorAll('.quantity-btn:last-child');
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            const removeButtons = document.querySelectorAll('.cart-item-remove');
+
+            // زيادة الكمية
+            plusBtns.forEach((btn, index) => {
+                btn.addEventListener('click', function() {
+                    let currentValue = parseInt(quantityInputs[index].value);
+                    quantityInputs[index].value = currentValue + 1;
+                    updateItemTotal(index);
+                    updateCartSummary();
+                });
+            });
+
+            // نقصان الكمية
+            minusBtns.forEach((btn, index) => {
+                btn.addEventListener('click', function() {
+                    let currentValue = parseInt(quantityInputs[index].value);
+                    if (currentValue > 1) {
+                        quantityInputs[index].value = currentValue - 1;
+                        updateItemTotal(index);
+                        updateCartSummary();
+                    }
+                });
+            });
+
+            // تغيير الكمية يدوياً
+            quantityInputs.forEach((input, index) => {
+                input.addEventListener('change', function() {
+                    if (parseInt(this.value) < 1) {
+                        this.value = 1;
+                    }
+                    updateItemTotal(index);
+                    updateCartSummary();
+                });
+            });
+
+            // إزالة منتج من السلة
+            removeButtons.forEach((btn, index) => {
+                btn.addEventListener('click', function() {
+                    const cartItem = this.closest('.cart-item');
+                    cartItem.remove();
+
+                    // تحديث عدد المنتجات في السلة
+                    const remainingItems = document.querySelectorAll('.cart-item').length;
+                    document.querySelector('.cart-header span').textContent = remainingItems + ' منتجات';
+
+                    // إظهار رسالة السلة الفارغة إذا لم تعد هناك منتجات
+                    if (remainingItems === 0) {
+                        document.querySelector('.cart-items').style.display = 'none';
+                        document.querySelector('.cart-summary').style.display = 'none';
+                        document.querySelector('.cart-actions').style.display = 'none';
+                        document.querySelector('.cart-empty').style.display = 'block';
+                    }
+
+                    updateCartSummary();
+                });
+            });
+
+            // تحديث إجمالي سعر المنتج
+            function updateItemTotal(index) {
+                const cartItems = document.querySelectorAll('.cart-item');
+                if (index >= cartItems.length) return;
+
+                const priceText = cartItems[index].querySelector('.cart-item-price').textContent;
+                const price = parseInt(priceText.match(/\d+/)[0]);
+                const quantity = parseInt(quantityInputs[index].value);
+                const totalElement = cartItems[index].querySelector('.cart-item-total');
+
+                totalElement.textContent = (price * quantity) + ' ريال';
+            }
+
+            // تحديث ملخص السلة
+            function updateCartSummary() {
+                const cartItems = document.querySelectorAll('.cart-item');
+                let subtotal = 0;
+
+                cartItems.forEach(item => {
+                    const totalText = item.querySelector('.cart-item-total').textContent;
+                    const total = parseInt(totalText.match(/\d+/)[0]);
+                    subtotal += total;
+                });
+
+                const tax = subtotal * 0.15;
+                const shipping = 25;
+                const total = subtotal + tax + shipping;
+
+                document.querySelector('.summary-row:nth-child(2) span:last-child').textContent = subtotal + ' ريال';
+                document.querySelector('.summary-row:nth-child(3) span:last-child').textContent = tax.toFixed(2) + ' ريال';
+                document.querySelector('.summary-row.total span:last-child').textContent = total.toFixed(2) + ' ريال';
+            }
+        });
+    </script>
+
+{% endblock js %}

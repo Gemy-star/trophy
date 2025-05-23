@@ -5,252 +5,153 @@
 {% endblock title %}
 
 {% block css %}
- <style>
-        /* تنسيقات إضافية خاصة بصفحة الأقسام */
-        .categories-hero {
-            background-color: var(--navy-blue);
-            color: var(--white);
-            padding: 60px 0;
-            text-align: center;
-            margin-bottom: 40px;
-        }
+<style>
+    /* تنسيقات إضافية خاصة بصفحة الأقسام */
+    .categories-hero {
+        background-color: var(--navy-blue);
+        color: var(--white);
+        padding: 60px 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
 
-        .categories-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
+    .categories-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
 
-        .categories-hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
+    .categories-hero p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0.9;
+    }
 
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 50px;
+    }
 
-        .category-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .category-card {
+        background-color: var(--white);
+        border-radius: 8px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-        }
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
 
-        .category-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
+    .category-image {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
 
-        .category-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+    .category-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
 
-        .category-card:hover .category-image img {
-            transform: scale(1.05);
-        }
+    .category-card:hover .category-image img {
+        transform: scale(1.05);
+    }
 
-        .category-info {
-            padding: 20px;
-        }
+    .category-info {
+        padding: 20px;
+    }
 
-        .category-info h3 {
-            color: var(--navy-blue);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
+    .category-info h3 {
+        color: var(--navy-blue);
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+    }
 
-        .category-info p {
-            color: var(--dark-gray);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
+    .category-info p {
+        color: var(--dark-gray);
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
 
-        .category-link {
-            display: inline-block;
-            color: var(--navy-blue);
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    .category-link {
+        display: inline-block;
+        color: var(--navy-blue);
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
 
-        .category-link:hover {
-            color: var(--gold);
-        }
+    .category-link:hover {
+        color: var(--gold);
+    }
 
-        .category-link i {
-            margin-right: 5px;
-            transition: transform 0.3s ease;
-        }
+    .category-link i {
+        margin-right: 5px;
+        transition: transform 0.3s ease;
+    }
 
-        .category-link:hover i {
-            transform: translateX(-5px);
-        }
+    .category-link:hover i {
+        transform: translateX(-5px);
+    }
 
-        .category-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--gold);
-            color: var(--navy-blue);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
+    .category-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--gold);
+        color: var(--navy-blue);
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
 
-        .featured-products {
-            margin-top: 60px;
-            padding: 40px 0;
-            background-color: #f9f9f9;
-        }
+    .pagination-container {
+        text-align: center;
+        margin-bottom: 50px;
+    }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    .pagination {
+        display: inline-flex;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-        .section-header h2 {
-            color: var(--navy-blue);
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
+    .page-link {
+        color: var(--navy-blue);
+        text-decoration: none;
+        padding: 8px 12px;
+        border: 1px solid var(--navy-blue);
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        .section-header p {
-            color: var(--dark-gray);
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
+    .page-link:hover {
+        background-color: var(--navy-blue);
+        color: var(--white);
+    }
 
-        .products-slider {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding: 10px 0 30px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--navy-blue) #f1f1f1;
-        }
-
-        .products-slider::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .products-slider::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .products-slider::-webkit-scrollbar-thumb {
-            background: var(--navy-blue);
-            border-radius: 10px;
-        }
-
-        .product-card {
-            min-width: 250px;
-            max-width: 250px;
-            background-color: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-image {
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 15px;
-        }
-
-        .product-info h3 {
-            color: var(--navy-blue);
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .product-info .seller {
-            color: var(--dark-gray);
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-
-        .product-info .price {
-            color: var(--navy-blue);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .product-actions a {
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .view-product {
-            background-color: var(--navy-blue);
-            color: var(--white);
-        }
-
-        .view-product:hover {
-            background-color: #141839;
-        }
-
-        .contact-seller {
-            background-color: #25D366;
-            color: var(--white);
-        }
-
-        .contact-seller:hover {
-            background-color: #128C7E;
-        }
-    </style>
+    .page-link.active {
+        background-color: var(--gold);
+        color: var(--navy-blue);
+        border-color: var(--gold);
+        font-weight: bold;
+    }
+</style>
 {% endblock css %}
+
 {% block content %}
-  <!-- قسم البحث -->
+<!-- قسم البحث -->
 <div class="search-container">
     <div class="container">
         <div class="search-box">
@@ -290,7 +191,7 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <!-- الكروت الثابتة البديلة -->
+                <!-- كروت fallback في حالة عدم وجود بيانات -->
                 <div class="category-card">
                     <div class="category-image">
                         <img src="https://images.unsplash.com/photo-1577937927133-66ef06acdf18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="{% trans 'أعلام' %}">
@@ -302,31 +203,31 @@
                         <a href="category-flags.html" class="category-link">{% trans "تصفح القسم" %} <i class="fas fa-arrow-left"></i></a>
                     </div>
                 </div>
-
-                <div class="category-card">
-                    <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1607703703520-bb638e84caf2?..." alt="{% trans 'المستلزمات الدعائية' %}">
-                    </div>
-                    <div class="category-info">
-                        <h3>{% trans "المستلزمات الدعائية (أدوات وتجهيزات)" %}</h3>
-                        <p>{% trans "مجموعة كاملة من الأدوات والعناصر الدعائية للشركات والمؤسسات، مثالية لترويج العلامة التجارية." %}</p>
-                        <a href="category-promotional-supplies.html" class="category-link">{% trans "تصفح القسم" %} <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?..." alt="{% trans 'لوحات أسماء مكتبية' %}">
-                    </div>
-                    <div class="category-info">
-                        <h3>{% trans "لوحات أسماء مكتبية" %}</h3>
-                        <p>{% trans "مجموعة أنيقة من لوحات الأسماء بخامات وتصاميم متنوعة، مثالية للمكاتب والمؤسسات." %}</p>
-                        <a href="category-names-plates.html" class="category-link">{% trans "تصفح القسم" %} <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-                <!-- نهاية fallback -->
+                <!-- يمكن تكرار المزيد من fallback cards حسب الحاجة -->
             {% endif %}
         </div>
+
+        {% if is_paginated %}
+            <div class="pagination-container">
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; {% trans "السابق" %}</a></li>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <li><span class="page-link active">{{ num }}</span></li>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <li><a href="?page={{ num }}" class="page-link">{{ num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link">{% trans "التالي" %} &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endif %}
     </div>
 </section>
 {% endblock content %}

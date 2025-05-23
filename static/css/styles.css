@@ -384,7 +384,21 @@ p {
 
 
 
-
+.whatsapp {
+  position: fixed;
+  bottom: 30px;     /* Distance from bottom */
+  left: 30px;      /* Distance from right */
+  width: 40px;
+  height: 40px;
+  background-color: var(--green-color);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+}
 
 
 

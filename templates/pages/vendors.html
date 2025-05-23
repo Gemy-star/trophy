@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %} {% trans 'البائعون المعتمدون ' %} {% endblock title %}
+
+{% block css %}
+<style>
+.pagination ul {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination li a,
+.pagination li span {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pagination li.active span {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+</style>
+{% endblock css %}
+
+
+{% block content %}
+ <!-- عنوان الصفحة -->
+    <section class="page-title">
+        <div class="container">
+            <h1>{% trans 'البائعون المعتمدون' %}</h1>
+            <p>{% trans 'تواصل مباشرة مع البائعين المعتمدين في منصة TROPHY واحصل على أفضل المنتجات بأفضل الأسعار' %}</p>
+        </div>
+    </section>
+    <!-- تصفية البائعين حسب القسم -->
+<section class="seller-filter">
+    <div class="container">
+        <div class="filter-container">
+            <h3>{% trans "تصفية حسب القسم:" %}</h3>
+            <div class="filter-options">
+                <a href="?category=all" class="filter-btn {% if selected_category == 'all' %}active{% endif %}">
+                    {% trans "الكل" %}
+                </a>
+                {% for category in categories %}
+                    <a href="?category={{ category.title }}" class="filter-btn {% if selected_category == category.title %}active{% endif %}">
+                        {{ category.title }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- قائمة البائعين -->
+<section class="sellers-list">
+    <div class="container">
+        <div class="sellers-grid">
+            {% for vendor in vendors %}
+                <div class="seller-card">
+                    <div class="seller-logo">
+                        <img src="https://via.placeholder.com/150x80?text={{ vendor.company_name|urlencode }}" alt="{% trans 'Vendor Logo' %}">
+                    </div>
+                    <div class="seller-info">
+                        <h3>{{ vendor.company_name }}</h3>
+                        <p>{{ vendor.about_company|truncatewords:20 }}</p>
+                        <div class="seller-categories">
+                            {% for cat in vendor.categories.all %}
+                                <span>{{ cat.title }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="seller-contact">
+                            {% if vendor.whatsapp %}
+                                <a href="https://wa.me/{{ vendor.whatsapp }}" class="whatsapp-btn">
+                                    <i class="fab fa-whatsapp"></i> {% trans "واتساب" %}
+                                </a>
+                            {% endif %}
+                            {% if vendor.contact_email %}
+                                <a href="mailto:{{ vendor.contact_email }}" class="email-btn">
+                                    <i class="far fa-envelope"></i> {% trans "البريد الألكترونى" %}
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>{% trans "لا يوجد بائعين" %}</p>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if is_paginated %}
+        <div class="pagination">
+            <ul>
+                {% if page_obj.has_previous %}
+                    <li>
+                        <a href="?{% if selected_category != 'all' %}category={{ selected_category }}&{% endif %}page={{ page_obj.previous_page_number }}">
+                            {% trans "Previous" %}
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for num in paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="active"><span>{{ num }}</span></li>
+                    {% elif num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
+                        <li>
+                            <a href="?{% if selected_category != 'all' %}category={{ selected_category }}&{% endif %}page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li>
+                        <a href="?{% if selected_category != 'all' %}category={{ selected_category }}&{% endif %}page={{ page_obj.next_page_number }}">
+                            {% trans "Next" %}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="join-as-seller">
+    <div class="container">
+        <div class="join-content">
+            <div class="join-text">
+                <h2>{% trans "انضم إلينا كبائع معتمد" %}</h2>
+                <p>{% trans "هل تقدم منتجات في مجال الهدايا الدعائية؟ انضم إلى منصة TROPHY كبائع معتمد واستفد من قاعدة عملاء واسعة وفرص تسويقية متميزة." %}</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> {% trans "عرض منتجاتك لآلاف العملاء المحتملين" %}</li>
+                    <li><i class="fas fa-check"></i> {% trans "تواصل مباشر مع العملاء عبر الواتساب والبريد الإلكتروني" %}</li>
+                    <li><i class="fas fa-check"></i> {% trans "لوحة تحكم سهلة لإدارة منتجاتك وطلباتك" %}</li>
+                    <li><i class="fas fa-check"></i> {% trans "دعم فني متكامل من فريق TROPHY" %}</li>
+                </ul>
+            </div>
+            <div class="join-cta">
+                <a href="{% url 'register_vendor' %}" class="btn btn-primary">{% trans "كن بائعاً الآن" %}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+
+{% block js %}
+
+
+{% endblock js %}

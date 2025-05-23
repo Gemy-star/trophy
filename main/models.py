@@ -176,3 +176,75 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.subject}"
+
+
+class Product(models.Model):
+    vendor = models.ForeignKey(
+        'VendorProfile',
+        on_delete=models.CASCADE,
+        related_name='products',
+        verbose_name=_("Vendor")
+    )
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='products',
+        verbose_name=_("Category")
+    )
+    title = models.CharField(
+        max_length=255,
+        verbose_name=_("Product Title")
+    )
+    description = models.TextField(
+        blank=True,
+        verbose_name=_("Description")
+    )
+    options = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name=_("Options (e.g. اللون: أسود، الحفر: شعار)")
+    )
+    price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        verbose_name=_("Price")
+    )
+    image = models.ImageField(
+        upload_to='products/',
+        verbose_name=_("Product Image")
+    )
+    image_resized = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(300, 300)],
+        format='JPEG',
+        options={'quality': 85}
+    )
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name=_("Is Active")
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_("Created At")
+    )
+
+    def __str__(self):
+        return self.title
+
+    def image_url(self):
+        if self.image:
+            return self.image.url
+        return ""
+
+    def seller_name(self):
+        return self.vendor.company_name
+
+class CartItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cart_items', verbose_name=_("User"))
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='cart_items', verbose_name=_("Product"))
+    quantity = models.PositiveIntegerField(default=1, verbose_name=_("Quantity"))
+
+    def total_price(self):
+        return self.product.price * self.quantity
